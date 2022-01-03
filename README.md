@@ -24,7 +24,7 @@ Before starting, please make sure you have the following software installed on y
 #### Back-End:
   [x] Run npm install --yes
   [x] Make sure express and pg are installed as well
-  * Create a database using SQL via Postico
+  [x] Create a database using SQL via Postico
   * Create a 'user' table using SQL via Postico
   * Create a 'rating' table using SQl via Postico
   * Include queries on my database.sql text file
