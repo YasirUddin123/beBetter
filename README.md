@@ -15,8 +15,8 @@ Before starting, please make sure you have the following software installed on y
 
 ## My High Level Development Plan
 ### Step 1: Initialize Project
-  * Make a new git branch to 'initialize' my work
-  * Add an .env file to project directory
+  [x] Make a new git branch to 'initialize' my work
+  [x] Add an .env file to project directory
 
 #### Front-End:
   * Make sure all files are sourced in correctly
@@ -91,4 +91,4 @@ Before starting, please make sure you have the following software installed on y
 
   * Style the application
 
-### Step 3: Deploy to Heroku 
+### Step 3: Deploy to Heroku
