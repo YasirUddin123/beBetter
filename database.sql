@@ -6,5 +6,18 @@
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
+    "email" VARCHAR (200) NOT NULL,
     "password" VARCHAR (1000) NOT NULL
+);
+
+-- Rating Table Query
+CREATE TABLE "rating" (
+    "id" SERIAL PRIMARY KEY,
+    "physical_activity" VARCHAR(80) NOT NULL,
+    "diet" VARCHAR(80) NOT NULL,
+    "sleep" VARCHAR(80) NOT NULL,
+    "mood" VARCHAR(80) NOT NULL,
+    "comments" VARCHAR(1000) NOT NULL,
+    "date" VARCHAR(1000) NOT NULL,
+    "user_id" INT REFERENCES "user"
 );
