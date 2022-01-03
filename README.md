@@ -26,7 +26,7 @@ Before starting, please make sure you have the following software installed on y
   [x] Make sure express and pg are installed as well
   [x] Create a database using SQL via Postico
   [x] Create a 'user' table using SQL via Postico
-  * Create a 'rating' table using SQl via Postico
+  [x] Create a 'rating' table using SQl via Postico
   * Include queries on my database.sql text file
   * Wire up database connection in pool.js file
   * Make sure Express server is functional in server.js
