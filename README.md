@@ -19,7 +19,7 @@ Before starting, please make sure you have the following software installed on y
   [x] Add an .env file to project directory
 
 #### Front-End:
-  * Make sure all files are sourced in correctly
+  * [x] Make sure all files are sourced in correctly
 
 #### Back-End:
   * Run npm install --yes
