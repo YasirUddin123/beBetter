@@ -19,11 +19,11 @@ Before starting, please make sure you have the following software installed on y
   [x] Add an .env file to project directory
 
 #### Front-End:
-  * [x] Make sure all files are sourced in correctly
+  [x] Make sure all files are sourced in correctly
 
 #### Back-End:
-  * Run npm install --yes
-  * Make sure express and pg are installed as well
+  [x] Run npm install --yes
+  [x] Make sure express and pg are installed as well
   * Create a database using SQL via Postico
   * Create a 'user' table using SQL via Postico
   * Create a 'rating' table using SQl via Postico
