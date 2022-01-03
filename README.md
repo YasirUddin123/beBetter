@@ -28,8 +28,8 @@ Before starting, please make sure you have the following software installed on y
   [x] Create a 'user' table using SQL via Postico
   [x] Create a 'rating' table using SQl via Postico
   [x] Include queries on my database.sql text file
-  * Wire up database connection in pool.js file
-  * Make sure Express server is functional in server.js
+  [x] Wire up database connection in pool.js file
+  [x] Make sure Express server is functional in server.js
 
 ### Step 2: Develop Features
   * Log-in and Registration
