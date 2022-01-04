@@ -23,7 +23,6 @@ function UserPage() {
       {/* <p>Your ID is: {user.id}</p> */}
 
       <h1>Begin Your Survey for the Day!</h1>
-      <LogOutButton className="btn" />
       <button onClick={onBeginSurvey}>Begin Survey</button>
     </div>
   );

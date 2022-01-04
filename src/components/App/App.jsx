@@ -69,11 +69,11 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             exact
             path="/survey">
               <Survey/>
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           <Route
             exact
