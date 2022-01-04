@@ -1,10 +1,20 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+
+  // define history to make sure we can click to next page
+  const history = useHistory();
+
+   // route to survey page
+   const onBeginSurvey = () => {
+    history.push('/survey');
+}
+
   return (
     <div className="container">
       <h1>Daily Wellness Tracker</h1>
@@ -14,7 +24,7 @@ function UserPage() {
 
       <h1>Begin Your Survey for the Day!</h1>
       <LogOutButton className="btn" />
-
+      <button onClick={onBeginSurvey}>Begin Survey</button>
     </div>
   );
 }
