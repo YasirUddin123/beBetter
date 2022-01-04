@@ -12,13 +12,7 @@ function UserPage() {
       <p>Today's Date</p>
       {/* <p>Your ID is: {user.id}</p> */}
 
-      <h1>Recorded Entries</h1>
-      <LogOutButton className="btn" />
-
-      <h1>Let's Get Started!</h1>
-      <LogOutButton className="btn" />
-
-      <h1>Graph</h1>
+      <h1>Begin Your Survey for the Day!</h1>
       <LogOutButton className="btn" />
 
     </div>
