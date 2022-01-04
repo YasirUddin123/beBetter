@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../Survey/Survey';
+import History from '../History/History';
 
 import './App.css';
 
@@ -73,6 +74,12 @@ function App() {
             exact
             path="/survey">
               <Survey/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/history">
+              <History/>
           </ProtectedRoute>
 
           <Route
