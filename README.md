@@ -38,7 +38,7 @@ Before starting, please make sure you have the following software installed on y
   * Home Page
     * Route to Recorded Entries [x]
     * Route to Start Survey [x]
-    * Route to Graph [x[]
+    * Route to Graph [x]
     * Ability to Log Out [x]
     * Incorporate Current Date
 
