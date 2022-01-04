@@ -15,25 +15,25 @@ Before starting, please make sure you have the following software installed on y
 
 ## My High Level Development Plan
 ### Step 1: Initialize Project
-  [x] Make a new git branch to 'initialize' my work
-  [x] Add an .env file to project directory
+  - Make a new git branch to 'initialize' my work [x]
+  - Add an .env file to project directory [x]
 
 #### Front-End:
-  [x] Make sure all files are sourced in correctly
+  - Make sure all files are sourced in correctly [x]
 
 #### Back-End:
-  [x] Run npm install --yes
-  [x] Make sure express and pg are installed as well
-  [x] Create a database using SQL via Postico
-  [x] Create a 'user' table using SQL via Postico
-  [x] Create a 'rating' table using SQl via Postico
-  [x] Include queries on my database.sql text file
-  [x] Wire up database connection in pool.js file
-  [x] Make sure Express server is functional in server.js
+  - Run npm install --yes [x]
+  - Make sure express and pg are installed as well [x]
+  - Create a database using SQL via Postico [x]
+  - Create a 'user' table using SQL via Postico [x]
+  - Create a 'rating' table using SQl via Postico [x]
+  - Include queries on my database.sql text file [x]
+  - Wire up database connection in pool.js file [x]
+  - Make sure Express server is functional in server.js [x]
 
 ### Step 2: Develop Features
-  * Log-in and Registration
-    * Store in database
+  * Log-in and Registration [x]
+    * Store in database [x]
 
   * Home Page
     * Route to Recorded Entries
