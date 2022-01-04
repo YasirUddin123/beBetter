@@ -40,7 +40,7 @@ Before starting, please make sure you have the following software installed on y
     * Route to Start Survey [x]
     * Route to Graph [x]
     * Ability to Log Out [x]
-    * Incorporate Current Date
+    * Incorporate Current Date [x]
 
   * Survey
     * Provide questionnaire
