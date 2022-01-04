@@ -36,11 +36,11 @@ Before starting, please make sure you have the following software installed on y
     * Store in database [x]
 
   * Home Page
-    * Route to Recorded Entries
-    * Route to Start Survey
-    * Route to Graph
-    * Ability to Log Out
-    * Incorporate Current Date
+    * Route to Recorded Entries [x]
+    * Route to Start Survey [x]
+    * Route to Graph [x]
+    * Ability to Log Out [x]
+    * Incorporate Current Date [x]
 
   * Survey
     * Provide questionnaire

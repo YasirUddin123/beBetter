@@ -15,10 +15,12 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import GraphPage from '../GraphPage/GraphPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Survey from '../Survey/Survey';
+import History from '../History/History';
 
 import './App.css';
 
@@ -61,11 +63,23 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows GraphPage else shows LoginPage
             exact
-            path="/info"
+            path="/graph"
           >
-            <InfoPage />
+            <GraphPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/survey">
+              <Survey/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/history">
+              <History/>
           </ProtectedRoute>
 
           <Route
@@ -73,7 +87,7 @@ function App() {
             path="/login"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
               :
@@ -87,7 +101,7 @@ function App() {
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -101,7 +115,7 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
