@@ -1,24 +1,38 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom'
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
-
 function Survey() {
+    //make sure to define a state to collect feedback
+    const [physicalActivityInput, setPhysicalActivityInput] = useState('');
+
+    // make sure define dispatch to send and store data to our reducer
+    const dispatch = useDispatch();
 
     // define history to make sure we can click to next page
     const history = useHistory();
 
     // route to physical activity results page
     const onSeePhysicalResults = () => {
-        history.push('/physical_activity_results');
+        if(physicalActivityInput === ''){
+            return alert('You forgot to answer!')
+        } else {
+            dispatch({
+                type: 'ADD_PHYSICAL_ACTIVITY',
+                payload: physicalActivityInput
+            })
+            history.push('/physical_activity_results');
+        }
     }
 
 return (
     <div className="container">
-    <p>Survey</p>
+    <h1>Survey</h1>
+    <input
+        value={physicalActivityInput}
+        onChange={(event) => {setPhysicalActivityInput(event.target.value)}}
+        type="number"
+    />
     <button onClick={onSeePhysicalResults}>See Your Results!</button>
     </div>
 );
