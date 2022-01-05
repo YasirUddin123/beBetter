@@ -20,8 +20,9 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../Survey/Survey';
-import PhysicalActivity from '../PhysicalActivity/PhysicalActivity';
+import PhysicalActivityResultsPage from '../PhysicalActivityResultsPage/PhysicalActivityResultsPage';
 import DietResultsPage from '../DietResultsPage/DietResultsPage';
+import SleepResultsPage from '../SleepResultsPage/SleepResultsPage';
 import History from '../History/History';
 
 
@@ -82,13 +83,19 @@ function App() {
           <ProtectedRoute
             exact
             path="/physical_activity_results">
-              <PhysicalActivity/>
+              <PhysicalActivityResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
             path="/diet_results">
               <DietResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/sleep_results">
+              <SleepResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute
