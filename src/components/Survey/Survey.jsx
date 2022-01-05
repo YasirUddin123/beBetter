@@ -1,10 +1,10 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {useHistory} from 'react-router-dom'
 
 function Survey() {
-    //make sure to define a state to collect feedback
+    // make sure to define a state to collect feedback
     const [physicalActivityInput, setPhysicalActivityInput] = useState('');
 
     // make sure define dispatch to send and store data to our reducer
@@ -12,6 +12,14 @@ function Survey() {
 
     // define history to make sure we can click to next page
     const history = useHistory();
+
+    // grab reducer from the redux store via useSelector
+    const physicalActivity = useSelector(store => store.physicalActivity);
+    console.log(physicalActivity);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_PHYSICAL_ACTIVITY' })
+    }, []);
 
     // route to physical activity results page
     const onSeePhysicalResults = () => {

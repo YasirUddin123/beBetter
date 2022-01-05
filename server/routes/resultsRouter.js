@@ -9,10 +9,18 @@ const router = express.Router();
 // })
 
 router.get('/', (req, res) => {
-  // GET route code here
+  const query = `SELECT * FROM rating`;
+  pool.query(query)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all physical activity results', err);
+      res.sendStatus(500)
+    })
 });
 
- router.post('/',  (req, res) => {
+router.post('/',  (req, res) => {
   console.log(`Adding physical activity results`, req.body);
   const sqlText = `INSERT INTO "rating"
   ("physical_activity")
@@ -28,7 +36,7 @@ router.get('/', (req, res) => {
       res.sendStatus(201);
   })
   .catch((dbErr) => {
-      console.log(`Error adding feedback`, dbErr);
+      console.log(`Error adding physical activity`, dbErr);
       res.sendStatus(500);
   });
 });
