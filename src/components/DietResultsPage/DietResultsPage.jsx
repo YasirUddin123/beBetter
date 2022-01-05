@@ -6,21 +6,21 @@ import {useHistory} from 'react-router-dom';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is
 
-function PhysicalActivity() {
+function DietResultsPage() {
     const history = useHistory();
 
     // route to diet results page
-    const onSeeDietResults = () => {
-        history.push('/diet_results');
+    const onSeeSleepResults = () => {
+        history.push('/sleep_results');
     }
 
 return (
     <div className="container">
-    <p>Physical Activity Results</p>
-    <button onClick={onSeeDietResults}>Next</button>
+    <p>Diet Results</p>
+    <button on={onSeeSleepResults}>Next</button>
 
     </div>
 );
 }
 
-export default PhysicalActivity;
+export default DietResultsPage;

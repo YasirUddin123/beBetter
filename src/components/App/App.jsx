@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../Survey/Survey';
 import PhysicalActivity from '../PhysicalActivity/PhysicalActivity';
+import DietResultsPage from '../DietResultsPage/DietResultsPage';
 import History from '../History/History';
 
 
@@ -82,6 +83,12 @@ function App() {
             exact
             path="/physical_activity_results">
               <PhysicalActivity/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/diet_results">
+              <DietResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute
