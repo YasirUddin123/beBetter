@@ -23,6 +23,7 @@ import Survey from '../Survey/Survey';
 import PhysicalActivityResultsPage from '../PhysicalActivityResultsPage/PhysicalActivityResultsPage';
 import DietResultsPage from '../DietResultsPage/DietResultsPage';
 import SleepResultsPage from '../SleepResultsPage/SleepResultsPage';
+import MoodResultsPage from '../MoodResultsPage/MoodResultsPage';
 import History from '../History/History';
 
 
@@ -96,6 +97,12 @@ function App() {
             exact
             path="/sleep_results">
               <SleepResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/mood_results">
+              <MoodResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute
