@@ -11,15 +11,15 @@ function Survey() {
     // define history to make sure we can click to next page
     const history = useHistory();
 
-    // route to survey page
-    const onSeeResults = () => {
+    // route to physical activity results page
+    const onSeePhysicalResults = () => {
         history.push('/physical_activity_results');
     }
 
 return (
     <div className="container">
     <p>Survey</p>
-    <button onClick={onSeeResults}>See Your Results!</button>
+    <button onClick={onSeePhysicalResults}>See Your Results!</button>
     </div>
 );
 }
