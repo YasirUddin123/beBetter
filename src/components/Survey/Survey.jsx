@@ -14,7 +14,7 @@ function Survey() {
     const history = useHistory();
 
     // grab reducer from the redux store via useSelector
-    const physicalActivity = useSelector(store => store.physicalActivity);
+    const physicalActivity = useSelector(store => store.physicalActivityResults);
     console.log(physicalActivity);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function Survey() {
         } else {
             dispatch({
                 type: 'ADD_PHYSICAL_ACTIVITY',
-                payload: physicalActivityInput
+                payload: {physical_activity: physicalActivityInput}
             })
             history.push('/physical_activity_results');
         }

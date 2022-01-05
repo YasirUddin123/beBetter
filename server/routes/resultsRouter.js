@@ -23,9 +23,9 @@ router.get('/', (req, res) => {
 router.post('/',  (req, res) => {
   console.log(`Adding physical activity results`, req.body);
   const sqlText = `INSERT INTO "rating"
-  ("physical_activity")
+  ("physical_activity", "diet", "sleep", "mood", "comments", "date")
   VALUES
-  ($1);
+  ($1, '2', '3', '4', '5', '1-1-22');
   `;
   const sqlValue = [
       req.body.physical_activity
