@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -9,6 +10,9 @@ import {useHistory} from 'react-router-dom';
 function PhysicalActivityResultsPage() {
     const history = useHistory();
 
+    // grab reducer from the redux store via useSelector
+    const physicalActivity = useSelector(store => store.physicalActivityResults);
+
     // route to diet results page
     const onSeeDietResults = () => {
         history.push('/diet_results');
@@ -17,6 +21,13 @@ function PhysicalActivityResultsPage() {
 return (
     <div className="container">
     <p>Physical Activity Results</p>
+    <p>
+        {physicalActivity.map(results => {
+            return (
+                <li>{results.physical_activity}</li>
+            )
+        })}
+    </p>
     <button onClick={onSeeDietResults}>Next</button>
 
     </div>
