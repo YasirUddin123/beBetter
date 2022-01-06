@@ -22,6 +22,10 @@ function History() {
                 {results.mood}
                 <br></br>
                 {results.comments}
+                <br></br>
+                <button>DELETE</button>
+                <br></br>
+                <button>EDIT</button>
                 </li>
             )
         })}

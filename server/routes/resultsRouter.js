@@ -40,4 +40,21 @@ router.post('/',  (req, res) => {
   });
 });
 
+
+router.delete('',(req, res) => {
+  const sqlText = `
+    DELETE FROM "rating"
+      WHERE "id"=$1;
+  `;
+  const queryValues = [req.rating.id];
+pool.query(sqlText, queryValues)
+  .then((dbRes)=> {
+    res.sendStatus(201);
+  })
+  .catch((dbErr) => {
+    console.error('ERROR: DELETE request failed:', dbErr);
+    res.sendStatus(500);
+  })
+});
+
 module.exports = router;
