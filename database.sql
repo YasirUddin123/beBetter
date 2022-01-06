@@ -9,14 +9,15 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+
 -- Rating Table Query
 CREATE TABLE "rating" (
     "id" SERIAL PRIMARY KEY,
-    "physical_activity" VARCHAR(80) NOT NULL,
-    "diet" VARCHAR(80) NOT NULL,
-    "sleep" VARCHAR(80) NOT NULL,
-    "mood" VARCHAR(80) NOT NULL,
-    "comments" VARCHAR(1000) NOT NULL,
-    "date" DATE NOT NULL,
+    "physical_activity" INT,
+    "diet" INT,
+    "sleep" INT,
+    "mood" INT,
+    "comments" VARCHAR(1000),
+    "date" DATE,
     "user_id" INT REFERENCES "user"
 );
