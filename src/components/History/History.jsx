@@ -13,20 +13,8 @@ function History() {
       <p>
         {physicalActivity.map(results => {
             return (
-                <li>{results.physical_activity}
-                <br></br>
-                {results.diet}
-                <br></br>
-                {results.sleep}
-                <br></br>
-                {results.mood}
-                <br></br>
-                {results.comments}
-                <br></br>
-                <button>DELETE</button>
-                <br></br>
-                <button>EDIT</button>
-                </li>
+                <p>{results.physical_activity} {results.diet} {results.sleep} {results.mood} {results.comments} <button>DELETE</button> <button>EDIT</button>
+                </p>
             )
         })}
     </p>
