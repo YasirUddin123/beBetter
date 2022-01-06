@@ -17,6 +17,6 @@ CREATE TABLE "rating" (
     "sleep" VARCHAR(80) NOT NULL,
     "mood" VARCHAR(80) NOT NULL,
     "comments" VARCHAR(1000) NOT NULL,
-    "date" VARCHAR(1000) NOT NULL,
+    "date" DATE NOT NULL,
     "user_id" INT REFERENCES "user"
 );

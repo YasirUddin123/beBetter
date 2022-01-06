@@ -20,7 +20,12 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../Survey/Survey';
+import PhysicalActivityResultsPage from '../PhysicalActivityResultsPage/PhysicalActivityResultsPage';
+import DietResultsPage from '../DietResultsPage/DietResultsPage';
+import SleepResultsPage from '../SleepResultsPage/SleepResultsPage';
+import MoodResultsPage from '../MoodResultsPage/MoodResultsPage';
 import History from '../History/History';
+
 
 import './App.css';
 
@@ -74,6 +79,30 @@ function App() {
             exact
             path="/survey">
               <Survey/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/physical_activity_results">
+              <PhysicalActivityResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/diet_results">
+              <DietResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/sleep_results">
+              <SleepResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/mood_results">
+              <MoodResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute

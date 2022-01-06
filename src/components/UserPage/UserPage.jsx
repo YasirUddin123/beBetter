@@ -1,5 +1,4 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom'
 
@@ -31,7 +30,6 @@ function UserPage() {
       <h1>Daily Wellness Tracker</h1>
       <h3>Welcome, {user.username}!</h3>
       <p>Today's Date: {day} {monthName} {date}, {year}</p>
-      {/* <p>Your ID is: {user.id}</p> */}
       <h1>Begin Your Survey for the Day!</h1>
       <button onClick={onBeginSurvey}>Begin Survey</button>
     </div>

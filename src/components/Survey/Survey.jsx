@@ -1,14 +1,64 @@
-import React from 'react';
-
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useState} from 'react';
+import {useHistory} from 'react-router-dom'
 
 function Survey() {
+    // make sure to define a state to collect feedback
+    const [physicalActivityInput, setPhysicalActivityInput] = useState('');
+    const [dietInput, setDietInput] = useState('');
+    const [sleepInput, setSleepInput] = useState('');
+    const [moodInput, setMoodInput] = useState('');
+    const [commentsInput, setcommentsInput] = useState('');
+
+    // make sure define dispatch to send and store data to our reducer
+    const dispatch = useDispatch();
+
+    // define history to make sure we can click to next page
+    const history = useHistory();
+
+    // grab reducer from the redux store via useSelector
+    const physicalActivity = useSelector(store => store.physicalActivityResults);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_PHYSICAL_ACTIVITY'})
+    }, []);
+
+    // route to physical activity results page
+    const onSeePhysicalResults = () => {
+        if(physicalActivityInput === ''){
+            return alert('You forgot to answer!')
+        } else {
+            dispatch({
+                type: 'ADD_PHYSICAL_ACTIVITY',
+                payload: {physical_activity: physicalActivityInput, diet:dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+            })
+            history.push('/physical_activity_results');
+        }
+    }
+
 return (
     <div className="container">
-    <p>Survey</p>
+    <h1>Survey</h1>
+    <h4>On a scale from 1 to 10, how was your exercise today?</h4>
+    <input value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
+
+
+    <h4>On a scale from 1 to 10, how was your diet today?</h4>
+    <input value={dietInput} onChange={(event) => {setDietInput(event.target.value)}} type="number"/>
+
+    <h4>On a scale from 1 to 10, how was your sleep last night?</h4>
+    <input value={sleepInput} onChange={(event) => {setSleepInput(event.target.value)}} type="number"/>
+
+    <h4>On a scale from 1 to 10, how was your mood today?</h4>
+    <input value={moodInput} onChange={(event) => {setMoodInput(event.target.value)}} type="number"/>
+
+    <h4>Anything on your mind?</h4>
+    <input value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
+    <button onClick={onSeePhysicalResults}>Submit</button>
+
+
+
     </div>
 );
 }
