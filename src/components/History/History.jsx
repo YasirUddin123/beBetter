@@ -15,10 +15,11 @@ function History() {
   const results = useSelector(store => store.resultReducer);
   // const diet = useSelector(store => store.diet);
 
-  const handleDeletebtn = () => {
+  const handleDeletebtn = (id) => {
+
     dispatch({
         type: 'DELETE_RESULT',
-        payload: params.id
+        payload: id
     })
 };
 
@@ -28,14 +29,13 @@ function History() {
       <p>
         {results.map(result => {
             return (
-                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button>EDIT</button> <button onClick={handleDeletebtn}>DELETE</button>
+                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
                 </p>
             )
         })}
     </p>
     </div>
   );
-
 }
 
 export default History;

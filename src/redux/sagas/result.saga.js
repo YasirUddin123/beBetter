@@ -32,11 +32,14 @@ function* addResult(action) {
 
 
 function* deleteResult(action) {
+    console.log(action);
+
     try {
         const response = yield axios({
             method: 'DELETE',
             url: `api/results/${action.payload}`
         });
+        yield put({ type: 'FETCH_RESULT' });
         console.log('delete Results, response.data from DB:', response.data);
     } catch (err) {
         console.error('delete results error', err);
