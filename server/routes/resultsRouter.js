@@ -41,7 +41,7 @@ router.post('/',  (req, res) => {
 });
 
 
-router.delete('',(req, res) => {
+router.delete('/', (req, res) => {
   const sqlText = `
     DELETE FROM "rating"
       WHERE "id"=$1;

@@ -1,10 +1,10 @@
-const dietReducer = (state = [], action) => {
+const resultReducer = (state = [], action) => {
     switch (action.type) {
-    case 'SET_DIET':
+    case 'SET_RESULT':
         return action.payload;
     default:
         return state;
     }
 };
 
-export default dietReducer;
+export default resultReducer;

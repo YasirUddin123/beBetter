@@ -15,30 +15,31 @@ function Survey() {
     const dispatch = useDispatch();
 
     // define history to make sure we can click to next page
-    const history = useHistory();
+    // const history = useHistory();
 
     // grab reducer from the redux store via useSelector
-    const physicalActivity = useSelector(store => store.physicalActivityResults);
+    // const results = useSelector(store => store.resultReducer);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PHYSICAL_ACTIVITY'})
+        dispatch({ type: 'FETCH_RESULT'})
     }, []);
 
     // route to physical activity results page
-    const onSeePhysicalResults = () => {
+    const onSubmit = () => {
         if(physicalActivityInput === ''){
             return alert('You forgot to answer!')
         } else {
             dispatch({
-                type: 'ADD_PHYSICAL_ACTIVITY',
-                payload: {physical_activity: physicalActivityInput, diet:dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+                type: 'ADD_RESULT',
+                payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
             })
-            history.push('/physical_activity_results');
+            // history.push('/physical_activity_results');
         }
     }
 
 return (
     <div className="container">
+
     <h1>Survey</h1>
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     <input value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
@@ -55,9 +56,7 @@ return (
 
     <h4>Anything on your mind?</h4>
     <input value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
-    <button onClick={onSeePhysicalResults}>Submit</button>
-
-
+    <button onClick={onSubmit}>Submit</button>
 
     </div>
 );
