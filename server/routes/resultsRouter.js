@@ -1,12 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-// const pg = require('pg');
-// const Pool = pg.Pool;
-// const pool = new Pool ({
-//     host: 'localhost',
-//     database: 'beBetter_app'
-// })
+
 
 router.get('/', (req, res) => {
   const query = `SELECT * FROM rating`;
@@ -25,10 +20,14 @@ router.post('/',  (req, res) => {
   const sqlText = `INSERT INTO "rating"
   ("physical_activity", "diet", "sleep", "mood", "comments", "date")
   VALUES
-  ($1, '2', '3', '4', '5', '1-1-22');
+  ($1, $2, $3, $4, $5, '1-1-22');
   `;
   const sqlValue = [
-      req.body.physical_activity
+      req.body.physical_activity,
+      req.body.diet,
+      req.body.sleep,
+      req.body.mood,
+      req.body.comments
   ];
   pool.query(sqlText, sqlValue)
   .then((dbResult) => {
