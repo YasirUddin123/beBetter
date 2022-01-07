@@ -27,8 +27,11 @@ function History() {
     })
 };
 
-const handleEditbtn = () => {
-  history.push('/edit_results');
+// const handleEditbtn = (id) => {
+//   history.push(`/edit_results/${id}`);
+// };
+const handleEditbtn = (id) => {
+  history.push(`/edit_results/`);
 };
 
   return (
@@ -37,7 +40,7 @@ const handleEditbtn = () => {
       <p>
         {results.map(result => {
             return (
-                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={handleEditbtn}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
+                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={() => handleEditbtn(result.id)}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
                 </p>
             )
         })}

@@ -1,22 +1,55 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
 
 function EditResultsPage() {
+    const params = useParams();
+    const dispatch = useDispatch()
+    // Grab our reducer for editing
+    const editResult = useSelector(store => store.editThisResult)
+    // Now, let's go check out the reducer on the editResult.reducer.js file
 
-    const history = useHistory();
+    useEffect(() => {
+        dispatch({
+        type: 'FETCH_ONE_RESULT',
+        payload: params.id
+        })
+    }, [])
 
-    return (
-        <div className="container">
-        <p>Edit Results</p>
+    const handlePhysicalExerciseResultsChange = (e) => {
+        dispatch({
+        type: 'EDIT_PHYSICAL_RESULT',
+        payload: e.target.value
+        })
+    }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch({
+        type: 'EDIT_RESULT',
+        payload: {
+            id: id,
+            physical_activity: editResult.physical_activity
+        }
+        })
 
-        </div>
-    );
+return (
+<div>
+    <h2>Edit Results:</h2>
+
+        <form onSubmit={handleSubmit}>
+            <input
+            placeholder='Phys.Exer. Score'
+            value={editResult.physical_activity || ''}
+            onChange={handlePhysicalExerciseResultsChange}
+            />
+            <button>Update</button>
+        </form>
+</div>
+);
+}
 }
 
 export default EditResultsPage;

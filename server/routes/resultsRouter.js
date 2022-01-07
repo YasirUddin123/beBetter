@@ -59,13 +59,16 @@ pool.query(sqlText, queryValues)
 });
 
 router.put('/:id', (req, res) => {
-//   console.log('Test Delete');
-//   const sqlText = `
-//     DELETE FROM "rating"
-//       WHERE "id"=$1;
-//   `;
-//   const queryValues = [req.params.id];
-pool.query(sqlText, queryValues)
+  const sqlText = `
+    UPDATE rating
+      SET
+        physical_activity = $1
+      WHERE id = $2;
+  `
+  const sqlValues = [
+    req.body.physical_activity
+  ];
+pool.query(sqlText, sqlValues)
   .then((dbRes)=> {
     res.sendStatus(201);
   })
