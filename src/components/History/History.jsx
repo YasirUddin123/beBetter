@@ -23,13 +23,18 @@ function History() {
     })
 };
 
+const handleEditbtn = (id) => {
+  // Inside of this onClick function, do a GET route
+    dispatch({type: 'GET_RESULT', payload: id})
+};
+
   return (
     <div className="container">
       <p>History:</p>
       <p>
         {results.map(result => {
             return (
-                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
+                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={() =>handleEditbtn(result.id)}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
                 </p>
             )
         })}
