@@ -41,12 +41,30 @@ router.post('/',  (req, res) => {
 });
 
 
-router.delete('',(req, res) => {
+router.delete('/:id', (req, res) => {
+  console.log('Test Delete');
   const sqlText = `
     DELETE FROM "rating"
       WHERE "id"=$1;
   `;
-  const queryValues = [req.rating.id];
+  const queryValues = [req.params.id];
+pool.query(sqlText, queryValues)
+  .then((dbRes)=> {
+    res.sendStatus(201);
+  })
+  .catch((dbErr) => {
+    console.error('ERROR: DELETE request failed:', dbErr);
+    res.sendStatus(500);
+  })
+});
+
+router.put('/:id', (req, res) => {
+//   console.log('Test Delete');
+//   const sqlText = `
+//     DELETE FROM "rating"
+//       WHERE "id"=$1;
+//   `;
+//   const queryValues = [req.params.id];
 pool.query(sqlText, queryValues)
   .then((dbRes)=> {
     res.sendStatus(201);

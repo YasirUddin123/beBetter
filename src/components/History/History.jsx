@@ -1,38 +1,46 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { useParams} from 'react-router-dom';
 
 
 function History() {
+
+  // define dispatch in order to use it
+  const dispatch = useDispatch();
+
+  // define params
+  const params = useParams();
+
   // grab reducer from the redux store via useSelector
-  const physicalActivity = useSelector(store => store.physicalActivityResults);
+  const results = useSelector(store => store.resultReducer);
   // const diet = useSelector(store => store.diet);
+
+  const handleDeletebtn = (id) => {
+
+    dispatch({
+        type: 'DELETE_RESULT',
+        payload: id
+    })
+};
+
+const handleEditbtn = (id) => {
+  // Inside of this onClick function, do a GET route
+    dispatch({type: 'GET_RESULT', payload: id})
+};
 
   return (
     <div className="container">
-      <p>Physical Results:</p>
+      <p>History:</p>
       <p>
-        {physicalActivity.map(results => {
+        {results.map(result => {
             return (
-                <li>{results.physical_activity}
-                <br></br>
-                {results.diet}
-                <br></br>
-                {results.sleep}
-                <br></br>
-                {results.mood}
-                <br></br>
-                {results.comments}
-                <br></br>
-                <button>DELETE</button>
-                <br></br>
-                <button>EDIT</button>
-                </li>
+                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={() =>handleEditbtn(result.id)}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
+                </p>
             )
         })}
     </p>
     </div>
   );
-
 }
 
 export default History;
