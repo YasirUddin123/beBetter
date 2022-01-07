@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import { useParams} from 'react-router-dom';
 
 
@@ -7,6 +8,9 @@ function History() {
 
   // define dispatch in order to use it
   const dispatch = useDispatch();
+
+  // define history in order to route to page
+  const history = useHistory();
 
   // define params
   const params = useParams();
@@ -23,9 +27,8 @@ function History() {
     })
 };
 
-const handleEditbtn = (id) => {
-  // Inside of this onClick function, do a GET route
-    dispatch({type: 'GET_RESULT', payload: id})
+const handleEditbtn = () => {
+  history.push('/edit_results');
 };
 
   return (
@@ -34,7 +37,7 @@ const handleEditbtn = (id) => {
       <p>
         {results.map(result => {
             return (
-                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={() =>handleEditbtn(result.id)}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
+                <p>{result.physical_activity} {result.diet} {result.sleep} {result.mood} {result.comments} <button onClick={handleEditbtn}>EDIT</button> <button onClick={() =>handleDeletebtn(result.id)}>DELETE</button>
                 </p>
             )
         })}
