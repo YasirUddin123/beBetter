@@ -84,7 +84,8 @@ router.put('/:id', (req, res) => {
       WHERE id = $2;
   `
   const sqlValues = [
-    req.body.physical_activity
+    req.body.physical_activity,
+    req.params.id
   ];
 pool.query(sqlText, sqlValues)
   .then((dbRes)=> {

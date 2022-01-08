@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-import LoginPage from '../LoginPage/LoginPage';
+
 
 
 function EditResultsPage() {
@@ -45,6 +45,7 @@ return (
         <form onSubmit={handleSubmit}>
             <input
             placeholder='Phys.Exer. Score'
+            type="number"
             value={editResult.physical_activity || ''}
             onChange={handlePhysicalExerciseResultsChange}
             />
