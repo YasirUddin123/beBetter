@@ -15,6 +15,24 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/:id', (req, res) => {
+  const sqlText = `
+    SELECT * FROM rating
+      WHERE id = $1;
+  `;
+  const sqlValues = [
+    req.params.id
+  ];
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows[0]);
+    })
+    .catch((dbErr) => {
+      console.log('SELECT database error', dbErr);
+      res.sendStatus(500);
+    });
+});
+
 router.post('/',  (req, res) => {
   console.log(`Adding physical activity results`, req.body);
   const sqlText = `INSERT INTO "rating"
@@ -59,13 +77,25 @@ pool.query(sqlText, queryValues)
 });
 
 router.put('/:id', (req, res) => {
-//   console.log('Test Delete');
-//   const sqlText = `
-//     DELETE FROM "rating"
-//       WHERE "id"=$1;
-//   `;
-//   const queryValues = [req.params.id];
-pool.query(sqlText, queryValues)
+  const sqlText = `
+    UPDATE rating
+      SET
+        physical_activity = $1,
+        diet = $2,
+        sleep = $3,
+        mood = $4,
+        comments = $5
+      WHERE id = $6;
+  `;
+  const sqlValues = [
+    req.body.physical_activity,
+    req.body.diet,
+    req.body.sleep,
+    req.body.mood,
+    req.body.comments,
+    req.params.id
+  ];
+pool.query(sqlText, sqlValues)
   .then((dbRes)=> {
     res.sendStatus(201);
   })

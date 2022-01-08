@@ -24,6 +24,7 @@ import PhysicalActivityResultsPage from '../PhysicalActivityResultsPage/Physical
 import DietResultsPage from '../DietResultsPage/DietResultsPage';
 import SleepResultsPage from '../SleepResultsPage/SleepResultsPage';
 import MoodResultsPage from '../MoodResultsPage/MoodResultsPage';
+import EditResultsPage from '../EditResultsPage/EditResultsPage';
 import History from '../History/History';
 
 
@@ -103,6 +104,12 @@ function App() {
             exact
             path="/mood_results">
               <MoodResultsPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/edit_results/:id">
+              <EditResultsPage/>
           </ProtectedRoute>
 
           <ProtectedRoute

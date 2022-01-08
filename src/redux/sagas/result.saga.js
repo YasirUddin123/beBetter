@@ -37,7 +37,7 @@ function* deleteResult(action) {
     try {
         const response = yield axios({
             method: 'DELETE',
-            url: `api/results/${action.payload}`
+            url: `/api/results/${action.payload}`
         });
         yield put({ type: 'FETCH_RESULT' });
         console.log('delete Results, response.data from DB:', response.data);
@@ -46,20 +46,38 @@ function* deleteResult(action) {
     }
 };
 
-function* putResult(action) {
-    console.log(action);
-
+function* editResult(action){
     try {
-        const response = yield axios({
+        console.log('edit result action.payload', action.payload);
+        yield axios ({
             method: 'PUT',
-            url: `api/results/${action.payload}`
-        });
-        yield put({ type: 'FETCH_RESULT' });
-        console.log('delete Results, response.data from DB:', response.data);
+            url: `/api/results/${action.payload.id}`,
+            data: action.payload
+        })
+        yield put({
+            type: 'FETCH_RESULT'
+        })
     } catch (err) {
-        console.error('delete results error', err);
+        console.log(err);
     }
-};
+}
+
+function* fetchOneResult(action) {
+    try {
+    const response = yield axios({
+        method: 'GET',
+        url: `/api/results/${action.payload}`
+    })
+    const resultToEdit = response.data;
+    yield put({
+        type: 'SET_RESULT_TO_EDIT',
+        payload: resultToEdit
+    })
+    } catch (err) {
+    console.log(err);
+    }
+}
+
 
 // Pseudocode
 // Step 1: Click on the edit button
@@ -84,7 +102,9 @@ function* resultSaga() {
     yield takeLatest('ADD_RESULT', addResult);
     yield takeLatest('FETCH_RESULT', fetchResult);
     yield takeLatest('DELETE_RESULT', deleteResult);
-    yield takeLatest('PUT_RESULT', putResult);
+    yield takeLatest('FETCH_ONE_RESULT', fetchOneResult);
+    yield takeLatest('EDIT_RESULT', editResult);
+
 }
 
 export default resultSaga;
