@@ -37,7 +37,7 @@ function* deleteResult(action) {
     try {
         const response = yield axios({
             method: 'DELETE',
-            url: `api/results/${action.payload}`
+            url: `/api/results/${action.payload}`
         });
         yield put({ type: 'FETCH_RESULT' });
         console.log('delete Results, response.data from DB:', response.data);
@@ -51,7 +51,7 @@ function* editResult(action){
         console.log('edit result action.payload', action.payload);
         yield axios ({
             method: 'PUT',
-            url: `/results/${action.payload.id}`,
+            url: `/api/results/${action.payload.id}`,
             data: action.payload
         })
         yield put({
@@ -66,7 +66,7 @@ function* fetchOneResult(action) {
     try {
     const response = yield axios({
         method: 'GET',
-        url: `/results/${action.payload}`
+        url: `/api/results/${action.payload}`
     })
     const resultToEdit = response.data;
     yield put({

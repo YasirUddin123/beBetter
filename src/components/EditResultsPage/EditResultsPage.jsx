@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import LoginPage from '../LoginPage/LoginPage';
 
 
 function EditResultsPage() {
@@ -12,11 +13,12 @@ function EditResultsPage() {
     // Now, let's go check out the reducer on the editResult.reducer.js file
 
     useEffect(() => {
+        console.log('🚀🚀🚀🚀🚀🚀🚀');
         dispatch({
         type: 'FETCH_ONE_RESULT',
         payload: params.id
         })
-    }, [])
+    }, [params.id])
 
     const handlePhysicalExerciseResultsChange = (e) => {
         dispatch({
@@ -30,10 +32,11 @@ function EditResultsPage() {
         dispatch({
         type: 'EDIT_RESULT',
         payload: {
-            id: id,
+            id: editResult.id,
             physical_activity: editResult.physical_activity
         }
         })
+    }
 
 return (
 <div>
@@ -50,6 +53,6 @@ return (
 </div>
 );
 }
-}
+
 
 export default EditResultsPage;

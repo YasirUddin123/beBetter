@@ -108,7 +108,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/edit_results">
+            path="/edit_results/:id">
               <EditResultsPage/>
           </ProtectedRoute>
 

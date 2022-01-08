@@ -27,12 +27,14 @@ function History() {
     })
 };
 
-// const handleEditbtn = (id) => {
-//   history.push(`/edit_results/${id}`);
-// };
 const handleEditbtn = (id) => {
-  history.push(`/edit_results/`);
+  console.log('test');
+  console.log('id', id);
+  history.push(`/edit_results/${id}`);
 };
+// const handleEditbtn = (id) => {
+//   history.push(`/edit_results/`);
+// };
 
   return (
     <div className="container">
