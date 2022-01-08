@@ -2,10 +2,17 @@
 const editThisResult = (state = {}, action) => {
   // if the action.type is equal to 'SET_RESULT_TO_EDIT`, then we want to return the data.
     if (action.type === 'SET_RESULT_TO_EDIT') {
-      // return { physical_activity: action.payload.physical_activity }
       return  action.payload;
     } else if (action.type === 'EDIT_PHYSICAL_RESULT') {
       return { ...state, physical_activity: action.payload }
+    } else if (action.type === 'EDIT_DIET_RESULT') {
+      return { ...state, diet: action.payload }
+    } else if (action.type === 'EDIT_SLEEP_RESULT') {
+      return { ...state, sleep: action.payload }
+    } else if (action.type === 'EDIT_MOOD_RESULT') {
+      return { ...state, mood: action.payload }
+    } else if (action.type === 'EDIT_COMMENTS_RESULT') {
+      return { ...state, comments: action.payload }
     } else if (action.type === 'CLEAR_RESULT') {
       return {};
     }

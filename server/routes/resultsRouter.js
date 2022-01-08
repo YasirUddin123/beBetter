@@ -80,11 +80,19 @@ router.put('/:id', (req, res) => {
   const sqlText = `
     UPDATE rating
       SET
-        physical_activity = $1
-      WHERE id = $2;
-  `
+        physical_activity = $1,
+        diet = $2,
+        sleep = $3,
+        mood = $4,
+        comments = $5
+      WHERE id = $6;
+  `;
   const sqlValues = [
     req.body.physical_activity,
+    req.body.diet,
+    req.body.sleep,
+    req.body.mood,
+    req.body.comments,
     req.params.id
   ];
 pool.query(sqlText, sqlValues)

@@ -27,13 +27,45 @@ function EditResultsPage() {
         })
     }
 
+    const handleDietResultsChange = (e) => {
+        dispatch({
+        type: 'EDIT_DIET_RESULT',
+        payload: e.target.value
+        })
+    }
+
+    const handleSleepResultsChange = (e) => {
+        dispatch({
+        type: 'EDIT_SLEEP_RESULT',
+        payload: e.target.value
+        })
+    }
+
+    const handleMoodResultsChange = (e) => {
+        dispatch({
+        type: 'EDIT_MOOD_RESULT',
+        payload: e.target.value
+        })
+    }
+
+    const handleCommentsResultsChange = (e) => {
+        dispatch({
+        type: 'EDIT_COMMENTS_RESULT',
+        payload: e.target.value
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch({
         type: 'EDIT_RESULT',
         payload: {
             id: editResult.id,
-            physical_activity: editResult.physical_activity
+            physical_activity: editResult.physical_activity,
+            diet: editResult.diet,
+            sleep: editResult.sleep,
+            mood: editResult.mood,
+            comments: editResult.comments
         }
         })
     }
@@ -49,6 +81,35 @@ return (
             value={editResult.physical_activity || ''}
             onChange={handlePhysicalExerciseResultsChange}
             />
+
+            <input
+            placeholder='Diet Score'
+            type="number"
+            value={editResult.diet || ''}
+            onChange={handleDietResultsChange}
+            />
+
+            <input
+            placeholder='Sleep Score'
+            type="number"
+            value={editResult.sleep || ''}
+            onChange={handleSleepResultsChange}
+            />
+
+            <input
+            placeholder='Mood Score'
+            type="number"
+            value={editResult.mood || ''}
+            onChange={handleMoodResultsChange}
+            />
+
+            <input
+            placeholder='Comments'
+            type="text"
+            value={editResult.comments || ''}
+            onChange={handleCommentsResultsChange}
+            />
+
             <button>Update</button>
         </form>
 </div>
