@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 function History() {
@@ -26,7 +28,6 @@ function History() {
   // grab reducer from the redux store via useSelector
   const results = useSelector(store => store.resultReducer);
 
-
   const handleDeletebtn = (id) => {
 
     dispatch({
@@ -41,7 +42,6 @@ const handleEditbtn = (id) => {
   history.push(`/edit_results/${id}`);
 };
 
-
   return (
     <div className="container">
 
@@ -54,8 +54,8 @@ const handleEditbtn = (id) => {
             <TableCell align="center">Sleep</TableCell>
             <TableCell align="center">Mood</TableCell>
             <TableCell align="center">Comments</TableCell>
-            <TableCell align="center">Edit</TableCell>
-            <TableCell align="center">Delete</TableCell>
+            <TableCell align="center"></TableCell>
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -71,8 +71,8 @@ const handleEditbtn = (id) => {
               <TableCell align="center">{result.sleep}</TableCell>
               <TableCell align="center">{result.mood}</TableCell>
               <TableCell align="center">{result.comments}</TableCell>
-              <TableCell align="center"><Button color="success" variant="outlined" onClick={() => handleEditbtn(result.id)}>EDIT</Button></TableCell>
-              <TableCell align="center"><Button color="error" variant="outlined" onClick={() =>handleDeletebtn(result.id)}>DELETE</Button></TableCell>
+              <TableCell align="center"><Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }} onClick={() => handleEditbtn(result.id)}>EDIT</Button></TableCell>
+              <TableCell align="center"><Button  variant="contained" style={{ backgroundColor: '#791E1E', color: 'white' }} startIcon={<DeleteIcon />} onClick={() =>handleDeletebtn(result.id)}>DELETE</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

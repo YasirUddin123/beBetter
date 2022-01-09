@@ -61,8 +61,7 @@ return (
     <br>
     </br>
     <br />
-    <Button color="success" variant="outlined" onClick={onSubmit}>Submit</Button>
-
+    <Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }} onClick={onSubmit}>Submit</Button>
 
     </div>
 );

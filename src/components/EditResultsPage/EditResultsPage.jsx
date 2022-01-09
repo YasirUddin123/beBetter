@@ -142,7 +142,7 @@ return (
 <br />
 <br />
 <br />
-<Button color="success" variant="outlined" size="large" align="center" onClick={handleSubmit}>Update</Button>
+<Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }} size="large" align="center" onClick={handleSubmit}>Update</Button>
         </form>
 
 </div>
