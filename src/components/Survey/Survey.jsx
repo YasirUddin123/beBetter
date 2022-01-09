@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
-import {useHistory} from 'react-router-dom'
+import {Button} from '@mui/material';
 
 function Survey() {
     // make sure to define a state to collect feedback
@@ -56,7 +56,8 @@ return (
 
     <h4>Anything on your mind?</h4>
     <input value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
-    <button onClick={onSubmit}>Submit</button>
+    <Button color="success" variant="outlined" onClick={onSubmit}>Submit</Button>
+
 
     </div>
 );
