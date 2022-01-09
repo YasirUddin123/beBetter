@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
+import './Survey.css'
 import {Button} from '@mui/material';
 
 function Survey() {
@@ -38,7 +39,8 @@ function Survey() {
     }
 
 return (
-    <div className="container">
+    // <div className="container">
+    <div className="survey">
 
     <h1>Survey</h1>
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
@@ -56,6 +58,9 @@ return (
 
     <h4>Anything on your mind?</h4>
     <input value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
+    <br>
+    </br>
+    <br />
     <Button color="success" variant="outlined" onClick={onSubmit}>Submit</Button>
 
 
