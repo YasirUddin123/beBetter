@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
   margin: 0 0 30px;
   background-color: #257d7e;
   overflow: hidden;
