@@ -26,7 +26,7 @@ function LandingPage() {
 
           <center>
             <h4>Already a Member?</h4>
-            <button Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }} onClick={onLogin}>
+            <button Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onLogin}>
               Login
             </button>
           </center>
