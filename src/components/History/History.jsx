@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { useParams} from 'react-router-dom';
@@ -16,6 +16,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function History() {
 
+  useEffect(() => {
+    dispatch({ type: 'FETCH_RESULT'})
+}, []);
+
   // define dispatch in order to use it
   const dispatch = useDispatch();
 
@@ -27,6 +31,7 @@ function History() {
 
   // grab reducer from the redux store via useSelector
   const results = useSelector(store => store.resultReducer);
+  console.log(results)
 
   const handleDeletebtn = (id) => {
 

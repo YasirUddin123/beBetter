@@ -15,6 +15,8 @@ function EditResultsPage() {
     // Grab our reducer for editing
     const editResult = useSelector(store => store.editThisResult)
     // Now, let's go check out the reducer on the editResult.reducer.js file
+    // define history to make sure we can click to next page
+    const history = useHistory();
 
     useEffect(() => {
         console.log('🚀🚀🚀🚀🚀🚀🚀');
@@ -73,6 +75,7 @@ function EditResultsPage() {
             comments: editResult.comments
         }
         })
+        history.push('/history');
     }
 
 return (
@@ -82,17 +85,17 @@ return (
 <br />
         <form onSubmit={handleSubmit}>
             <Box
-                  component="form"
-                  sx={{
+                component="form"
+                sx={{
                     '& > :not(style)': { m: 1, width: '25ch' },
-                  }}
-                  noValidate
-                  autoComplete="off"
+                }}
+                noValidate
+                autoComplete="off"
                 />
 
             <TextField
             id="outlined-basic"
-            label="Physical Exercise"
+            label="Physical Activity"
             variant="outlined"
             placeholder='Phys.Exer. Score'
             type="number"
