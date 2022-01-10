@@ -1,27 +1,35 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 
-router.get('/', (req, res) => {
-  const query = `SELECT * FROM rating`;
-  pool.query(query)
-    .then( result => {
+
+router.get('/', rejectUnauthenticated, (req, res) => {
+  const query = `
+    SELECT * FROM rating
+      WHERE "user_id"=$1
+    `;
+
+  const queryValues = [req.user.id]
+  pool.query(query, queryValues)
+    .then( (result) => {
       res.send(result.rows);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log('ERROR: Get all physical activity results', err);
       res.sendStatus(500)
     })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `
     SELECT * FROM rating
-      WHERE id = $1;
+      WHERE "id" = $1 AND "user_id" = $2;
   `;
   const sqlValues = [
-    req.params.id
+    req.params.id,
+    req.user.id
   ];
   pool.query(sqlText, sqlValues)
     .then((dbRes) => {
@@ -33,19 +41,20 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/',  (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(`Adding physical activity results`, req.body);
   const sqlText = `INSERT INTO "rating"
-  ("physical_activity", "diet", "sleep", "mood", "comments", "date")
+  ("physical_activity", "diet", "sleep", "mood", "comments", "date", "user_id")
   VALUES
-  ($1, $2, $3, $4, $5, '1-1-22');
+  ($1, $2, $3, $4, $5, '1-1-22', $6);
   `;
   const sqlValue = [
       req.body.physical_activity,
       req.body.diet,
       req.body.sleep,
       req.body.mood,
-      req.body.comments
+      req.body.comments,
+      req.user.id
   ];
   pool.query(sqlText, sqlValue)
   .then((dbResult) => {
@@ -59,13 +68,13 @@ router.post('/',  (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('Test Delete');
   const sqlText = `
     DELETE FROM "rating"
-      WHERE "id"=$1;
+      WHERE "id"=$1 AND "user_id"=$2;
   `;
-  const queryValues = [req.params.id];
+  const queryValues = [req.params.id, req.user.id];
 pool.query(sqlText, queryValues)
   .then((dbRes)=> {
     res.sendStatus(201);
@@ -76,7 +85,7 @@ pool.query(sqlText, queryValues)
   })
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated,(req, res) => {
   const sqlText = `
     UPDATE rating
       SET
@@ -85,7 +94,7 @@ router.put('/:id', (req, res) => {
         sleep = $3,
         mood = $4,
         comments = $5
-      WHERE id = $6;
+      WHERE id = $6 AND "user_id"=$7;
   `;
   const sqlValues = [
     req.body.physical_activity,
@@ -93,7 +102,8 @@ router.put('/:id', (req, res) => {
     req.body.sleep,
     req.body.mood,
     req.body.comments,
-    req.params.id
+    req.params.id,
+    req.user.id
   ];
 pool.query(sqlText, sqlValues)
   .then((dbRes)=> {
