@@ -2,6 +2,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import './EditResults.css';
+
 
 
 
@@ -11,6 +16,8 @@ function EditResultsPage() {
     // Grab our reducer for editing
     const editResult = useSelector(store => store.editThisResult)
     // Now, let's go check out the reducer on the editResult.reducer.js file
+    // define history to make sure we can click to next page
+    const history = useHistory();
 
     useEffect(() => {
         console.log('🚀🚀🚀🚀🚀🚀🚀');
@@ -57,6 +64,7 @@ function EditResultsPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('test')
         dispatch({
         type: 'EDIT_RESULT',
         payload: {
@@ -68,54 +76,82 @@ function EditResultsPage() {
             comments: editResult.comments
         }
         })
+        history.push('/history');
     }
 
 return (
-<div>
-    <h2>Edit Results:</h2>
-
+<div class="editresults">
+    <h2>Edit Results</h2>
+<br />
+<br />
         <form onSubmit={handleSubmit}>
-            <input
+            <Box
+                component="form"
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+                />
+
+            <TextField
+            id="outlined-basic"
+            label="Physical Activity"
+            variant="outlined"
             placeholder='Phys.Exer. Score'
             type="number"
             value={editResult.physical_activity || ''}
             onChange={handlePhysicalExerciseResultsChange}
             />
 
-            <input
+            <TextField
+            id="outlined-basic"
+            label="Diet"
+            variant="outlined"
             placeholder='Diet Score'
             type="number"
             value={editResult.diet || ''}
             onChange={handleDietResultsChange}
             />
 
-            <input
+            <TextField
+            id="outlined-basic"
+            label="Sleep"
+            variant="outlined"
             placeholder='Sleep Score'
             type="number"
             value={editResult.sleep || ''}
             onChange={handleSleepResultsChange}
             />
 
-            <input
+            <TextField
+            id="outlined-basic"
+            label="Mood"
+            variant="outlined"
             placeholder='Mood Score'
             type="number"
             value={editResult.mood || ''}
             onChange={handleMoodResultsChange}
             />
 
-            <input
+            <TextField
+            id="outlined-basic"
+            label="Comments"
+            variant="outlined"
             placeholder='Comments'
             type="text"
             value={editResult.comments || ''}
             onChange={handleCommentsResultsChange}
             />
-
-            <button>Update</button>
+<br />
+<br />
+<br />
+<Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} size="large" align="center" onClick={handleSubmit}>Update</Button>
         </form>
+
 </div>
 );
 }
-
 
 export default EditResultsPage;
 

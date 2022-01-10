@@ -1,6 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom'
+import './UserPage.css';
+import {Button} from '@mui/material';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -26,12 +28,12 @@ function UserPage() {
   const year = myCurrentDate.getFullYear();
 
   return (
-    <div className="container">
-      <h1>Daily Wellness Tracker</h1>
-      <h3>Welcome, {user.username}!</h3>
-      <p>Today's Date: {day} {monthName} {date}, {year}</p>
-      <h1>Begin Your Survey for the Day!</h1>
-      <button onClick={onBeginSurvey}>Begin Survey</button>
+    // <div className="container">
+    <div className="userpage">
+      <h1>Welcome {user.username}!</h1>
+      <h3>Begin your survey for today!</h3>
+      <p>{day} {monthName} {date}, {year}</p>
+      <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }}  onClick={onBeginSurvey}>Start</Button>
     </div>
   );
 }
