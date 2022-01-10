@@ -30,11 +30,10 @@ function UserPage() {
   return (
     // <div className="container">
     <div className="userpage">
-      <h1>Daily Wellness Tracker</h1>
-      <h3>Welcome, {user.username}!</h3>
-      <p>Today's Date: {day} {monthName} {date}, {year}</p>
-      <h1>Begin Your Survey for the Day!</h1>
-      <Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }}  onClick={onBeginSurvey}>Start</Button>
+      <h1>Welcome, {user.username}!</h1>
+      <h3>Begin your survey for today!</h3>
+      <p>{day} {monthName} {date}, {year}</p>
+      <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }}  onClick={onBeginSurvey}>Start</Button>
     </div>
   );
 }

@@ -44,24 +44,24 @@ return (
 
     <h1>Survey</h1>
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
-    <input value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
+    <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
 
 
     <h4>On a scale from 1 to 10, how was your diet today?</h4>
-    <input value={dietInput} onChange={(event) => {setDietInput(event.target.value)}} type="number"/>
+    <input className="input" placeholder="Type a number" value={dietInput} onChange={(event) => {setDietInput(event.target.value)}} type="number"/>
 
     <h4>On a scale from 1 to 10, how was your sleep last night?</h4>
-    <input value={sleepInput} onChange={(event) => {setSleepInput(event.target.value)}} type="number"/>
+    <input className="input" placeholder="Type a number" value={sleepInput} onChange={(event) => {setSleepInput(event.target.value)}} type="number"/>
 
     <h4>On a scale from 1 to 10, how was your mood today?</h4>
-    <input value={moodInput} onChange={(event) => {setMoodInput(event.target.value)}} type="number"/>
+    <input className="input" placeholder="Type a number" value={moodInput} onChange={(event) => {setMoodInput(event.target.value)}} type="number"/>
 
     <h4>Anything on your mind?</h4>
-    <input value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
+    <input className="input" placeholder="Type your thoughts" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
     <br>
     </br>
     <br />
-    <Button variant="contained"  style={{ backgroundColor: '#387C7A', color: 'white' }} onClick={onSubmit}>Submit</Button>
+    <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onSubmit}>Submit</Button>
 
     </div>
 );
