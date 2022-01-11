@@ -130,7 +130,7 @@ const All = {
 
   return (
     <div className="container">
-      <p>Your Scores!</p>
+      <h1>Your Scores!</h1>
 <Line
           data={Total}
           options={{
