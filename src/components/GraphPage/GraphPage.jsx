@@ -12,7 +12,6 @@ function GraphPage() {
 
 const results = useSelector(store => store.resultReducer);
 
-
 let newLabel = [];
 function getLabel() {
   for(let i = 0; i < results.length; i++ ){
@@ -67,7 +66,6 @@ getPhysicalExercise();
 getDiet();
 getSleep();
 getMood();
-
 console.log(newDiet);
 console.log(newLabel)
 console.log(results);
@@ -136,7 +134,7 @@ const All = {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Wellness',
               fontSize:20
             },
             legend:{
