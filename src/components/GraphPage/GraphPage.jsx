@@ -18,9 +18,20 @@ let newLabel = [];
 function getDiet(){
   for(let i = 0; i < results.length; i++){
     newDiet.push(results[i].diet)
-  }
-  return newDiet;
 }
+return newDiet;
+}
+
+function getLabel() {
+  for(let i = 0; i < results.length; i++ ){
+    newLabel.push(i)
+  }
+  return newLabel
+}
+
+
+
+
 
 // function getLabel(){
 //   for(let i = 0; i < results.length; i++){
@@ -37,23 +48,25 @@ function getDiet(){
 //   chart.update();
 // }
 
-function addData(chart, label, data) {
-  chart.state.labels.push(label);
-  chart.state.datasets.forEach((dataset) => {
-      dataset.state.push(data);
-  });
-  chart.update();
-}
+// function addData(chart, label, data) {
+//   chart.state.labels.push(label);
+//   chart.state.datasets.forEach((dataset) => {
+//       dataset.state.push(data);
+//   });
+//   chart.update();
+// }
 
-
-
+// chart.config.data.labels = newLabels // you can pass the new labels
+// chart.update()
 
 
 getDiet();
+getLabel();
 console.log(newDiet);
+console.log(newLabel)
 console.log(results);
   const state = {
-    labels: ['Log1', 'Log2', 'Log3', 'Log4', 'Log5'],
+    labels: newLabel,
     datasets: [
       {
         label: 'Your Diet Scores',
