@@ -12,16 +12,8 @@ function GraphPage() {
 
 const results = useSelector(store => store.resultReducer);
 
-let newDiet = [];
+
 let newLabel = [];
-
-function getDiet(){
-  for(let i = 0; i < results.length; i++){
-    newDiet.push(results[i].diet)
-}
-return newDiet;
-}
-
 function getLabel() {
   for(let i = 0; i < results.length; i++ ){
     newLabel.push(results[i].date)
@@ -29,9 +21,44 @@ function getLabel() {
   return newLabel
 }
 
+let newPhysicalExercise = [];
+function getPhysicalExercise(){
+  for(let i = 0; i < results.length; i++){
+    newPhysicalExercise.push(results[i].physical_activity)
+}
+return newPhysicalExercise;
+}
 
-getDiet();
+let newDiet = [];
+function getDiet(){
+  for(let i = 0; i < results.length; i++){
+    newDiet.push(results[i].diet)
+}
+return newDiet;
+}
+
+let newSleep = [];
+function getSleep(){
+  for(let i = 0; i < results.length; i++){
+    newSleep.push(results[i].sleep)
+}
+return newSleep;
+}
+
+let newMood = [];
+function getMood(){
+  for(let i = 0; i < results.length; i++){
+    newMood.push(results[i].mood)
+}
+return newMood;
+}
+
 getLabel();
+getPhysicalExercise();
+getDiet();
+getSleep();
+getMood();
+
 console.log(newDiet);
 console.log(newLabel)
 console.log(results);
@@ -39,32 +66,48 @@ console.log(results);
     labels: newLabel,
     datasets: [
       {
-        label: 'Your Diet Scores',
+        label: 'Exercise',
         fill: false,
         lineTension: 0.5,
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
+        backgroundColor: '#1EB48D',
+        borderColor: '#1D7760',
         borderWidth: 2,
-        data:newDiet
+        data: newPhysicalExercise
+      },
+      {
+        label: 'Diet',
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: '#E9BA34',
+        borderColor: '#B2870C',
+        borderWidth: 2,
+        data: newDiet
+      },
+      {
+        label: 'Sleep',
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: '#CE2E2E',
+        borderColor: '#A62424',
+        borderWidth: 2,
+        data: newSleep
+      },
+      {
+        label: 'Mood',
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: '#AB00F5',
+        borderColor: '#9626C6',
+        borderWidth: 2,
+        data: newMood
       }
     ],
   }
 
-  function addData(chart, labels, data) {
-    chart.state.labels.push('new log');
-    chart.state.datasets.forEach((dataset) => {
-        dataset.data.push(newDiet[newDiet.length-1]);
-    });
-    state.update();
-  }
-
   return (
     <div className="container">
-      <p>Graph!</p>
+      <p>Your Scores!</p>
 <Line
-          // data={results.map((result) => (
-          //   {result, diet}
-          // ))}
           data={state}
           options={{
             title:{

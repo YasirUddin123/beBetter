@@ -28,12 +28,12 @@ function Survey() {
         dispatch({ type: 'FETCH_RESULT'})
     }, []);
 
-    // route to physical activity results page
+    // route to Exercise results page
     const onSubmit = () => {
         if(physicalActivityInput === ''){
             Swal.fire({
                 title: 'Error!',
-                text: 'You forgot to fill out a response for physical activity!',
+                text: 'You forgot to fill out a response for exercise!',
                 icon: 'error',
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
@@ -41,7 +41,7 @@ function Survey() {
         } else if (physicalActivityInput >= 11 ){
             Swal.fire({
                 title: 'Error!',
-                text: 'Your Physical Activity score is too high!',
+                text: 'Your Exercise score is too high!',
                 icon: 'warning',
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
@@ -49,7 +49,7 @@ function Survey() {
         } else if (physicalActivityInput <= 0 ){
             Swal.fire({
                 title: 'Error!',
-                text: 'Your Physical Activity score is too low!',
+                text: 'Your Exercise score is too low!',
                 icon: 'warning',
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
@@ -154,7 +154,7 @@ return (
     <div className="survey">
 
     <h1>Survey</h1>
-    <h4>On a scale from 1 to 10, how was your physical activity today?</h4>
+    <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
 
 
