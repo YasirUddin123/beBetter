@@ -24,40 +24,10 @@ return newDiet;
 
 function getLabel() {
   for(let i = 0; i < results.length; i++ ){
-    newLabel.push(i)
+    newLabel.push(results[i].date)
   }
   return newLabel
 }
-
-
-
-
-
-// function getLabel(){
-//   for(let i = 0; i < results.length; i++){
-//     state.labels.push('label')
-//   }
-//   return newLabel;
-// }
-
-// function addDietData(chart, label, data) {
-//   chart.data.labels.push(label);
-//   chart.data.datasets.forEach((dataset) => {
-//       dataset.data.push(data);
-//   });
-//   chart.update();
-// }
-
-// function addData(chart, label, data) {
-//   chart.state.labels.push(label);
-//   chart.state.datasets.forEach((dataset) => {
-//       dataset.state.push(data);
-//   });
-//   chart.update();
-// }
-
-// chart.config.data.labels = newLabels // you can pass the new labels
-// chart.update()
 
 
 getDiet();
@@ -77,16 +47,6 @@ console.log(results);
         borderWidth: 2,
         data:newDiet
       }
-      // {
-      //   label: 'My Scores',
-      //   fill: false,
-      //   lineTension: 0.5,
-      //   backgroundColor: 'rgba(75,192,192,1)',
-      //   borderColor: 'rgba(0,0,0,1)',
-      //   borderWidth: 2,
-      //   data: [50, 65, 75, 65, 70]
-      // }
-
     ],
   }
 
