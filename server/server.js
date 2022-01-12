@@ -21,8 +21,8 @@ app.get('/quotes', (req, res) => {
     url: `https://zenquotes.io/api/random/=${myApiKey}`
   })
   .then((apiRes) => {
-    console.log(apiRes)
-    res.send(apiRes.data.data);
+    console.log(apiRes.data[0].q)
+    res.send(apiRes.data[0].q);
   })
   .catch((apiErr) => {
     console.error(apiErr);
