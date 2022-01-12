@@ -40,7 +40,8 @@ function Survey() {
         })
     }, [])
 
-    console.log(quote);
+    // console.log(quote.q);
+    // console.log(quote.a);
 
 
     // route to Exercise results page
@@ -48,11 +49,23 @@ function Survey() {
         if(physicalActivityInput === ''){
             Swal.fire({
                 title: 'Error!',
-                text: 'You forgot to fill out a response for exercise!',
+                text: `You forgot to fill out a response for exercise!`,
                 icon: 'error',
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
             })
+        } else if (physicalActivityInput <= 5 && physicalActivityInput >= 1 ){
+            dispatch({
+                type: 'ADD_RESULT',
+                payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+            })
+            Swal.fire({
+                title: `"${quote.q}"   - by ${quote.a}`,
+                icon: 'success',
+                confirmButtonText: 'Exit',
+                confirmButtonColor: '#286F98'
+            })
+            history.push('/history');
         } else if (physicalActivityInput >= 11 ){
             Swal.fire({
                 title: 'Error!',
@@ -77,6 +90,18 @@ function Survey() {
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
             })
+        } else if (dietInput <= 5 && dietInput >= 1 ){
+            dispatch({
+                type: 'ADD_RESULT',
+                payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+            })
+            Swal.fire({
+                title: `"${quote.q}"   - by ${quote.a}`,
+                icon: 'success',
+                confirmButtonText: 'Exit',
+                confirmButtonColor: '#286F98'
+            })
+            history.push('/history');
         } else if (dietInput >= 11 ){
             Swal.fire({
                 title: 'Error!',
@@ -101,6 +126,18 @@ function Survey() {
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
             })
+        } else if (sleepInput <= 5 && sleepInput >= 1 ){
+            dispatch({
+                type: 'ADD_RESULT',
+                payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+            })
+            Swal.fire({
+                title: `"${quote.q}"   - by ${quote.a}`,
+                icon: 'success',
+                confirmButtonText: 'Exit',
+                confirmButtonColor: '#286F98'
+            })
+            history.push('/history');
         } else if (sleepInput >= 11 ){
             Swal.fire({
                 title: 'Error!',
@@ -125,7 +162,19 @@ function Survey() {
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
             })
-        } else if (moodInput >= 11 ){
+        } else if (moodInput <= 5 && moodInput >= 1 ){
+            dispatch({
+                type: 'ADD_RESULT',
+                payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+            })
+            Swal.fire({
+                title: `"${quote.q}"   - by ${quote.a}`,
+                icon: 'success',
+                confirmButtonText: 'Exit',
+                confirmButtonColor: '#286F98'
+            })
+            history.push('/history');
+        }else if (moodInput >= 11 ){
             Swal.fire({
                 title: 'Error!',
                 text: 'Your Mood score is too high!',
@@ -188,7 +237,7 @@ return (
     </br>
     <br />
     <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onSubmit}>Submit</Button>
-    <p>{quote}</p>
+    {/* <p>{quote}</p> */}
     </div>
 );
 }
