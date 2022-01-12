@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -11,6 +13,21 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const resultsRouter = require('./routes/resultsRouter.js')
 // const dietRouter = require('./routes/diet.router')
+
+app.get('/quotes', (req, res) => {
+  const myApiKey = process.env.API_KEY;
+  axios({
+    method: 'GET',
+    url: `https://zenquotes.io/api/random/=${myApiKey}`
+  })
+  .then((apiRes) => {
+    console.log(apiRes)
+    res.send(apiRes.data.data);
+  })
+  .catch((apiErr) => {
+    console.error(apiErr);
+  })
+})
 
 // Body parser middleware
 app.use(bodyParser.json());

@@ -5,6 +5,7 @@ import {useState} from 'react';
 import './Survey.css'
 import {Button} from '@mui/material';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 function Survey() {
@@ -14,19 +15,33 @@ function Survey() {
     const [sleepInput, setSleepInput] = useState('');
     const [moodInput, setMoodInput] = useState('');
     const [commentsInput, setcommentsInput] = useState('');
+    const [quote, setQuote] = useState([]);
 
     // make sure define dispatch to send and store data to our reducer
     const dispatch = useDispatch();
 
-    // define history to make sure we can click to next page
+    // define history to make sure we can click to next pagef
     const history = useHistory();
 
     // grab reducer from the redux store via useSelector
     // const results = useSelector(store => store.resultReducer);
 
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_RESULT'})
+    // }, []);
+
     useEffect(() => {
-        dispatch({ type: 'FETCH_RESULT'})
-    }, []);
+        axios({
+        method: 'GET',
+        url: '/quotes'
+        })
+        .then((res) => {
+        setQuote(res.data);
+        })
+    }, [])
+
+    console.log(quote);
+
 
     // route to Exercise results page
     const onSubmit = () => {
@@ -173,6 +188,7 @@ return (
     </br>
     <br />
     <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onSubmit}>Submit</Button>
+    <p>{quote}</p>
     </div>
 );
 }
