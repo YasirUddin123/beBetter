@@ -21,10 +21,9 @@ function UserPage() {
   const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   const day = weekday[myCurrentDate.getDay()];
   const date = myCurrentDate.getDate();
-  const monthNumber = myCurrentDate.getMonth() + 1;
+  const monthNumber = myCurrentDate.getMonth();
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const monthName = monthNames[monthNumber];
-
   const year = myCurrentDate.getFullYear();
 
   return (

@@ -96,7 +96,7 @@ return (
 
             <TextField
             id="outlined-basic"
-            label="Physical Activity"
+            label="Exercise"
             variant="outlined"
             placeholder='Phys.Exer. Score'
             type="number"

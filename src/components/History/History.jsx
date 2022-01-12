@@ -54,7 +54,7 @@ const handleEditbtn = (id) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Physical Activity</TableCell>
+            <TableCell align="center">Exercise</TableCell>
             <TableCell align="center">Diet</TableCell>
             <TableCell align="center">Sleep</TableCell>
             <TableCell align="center">Mood</TableCell>

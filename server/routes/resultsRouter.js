@@ -7,7 +7,8 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   const query = `
-    SELECT * FROM rating
+    SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
+      TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
       WHERE "user_id"=$1
     `;
 
