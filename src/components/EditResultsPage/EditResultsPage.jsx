@@ -80,7 +80,7 @@ function EditResultsPage() {
     }
 
 return (
-<div class="editresults">
+<div class="editresults" class="background" class="survey">
     <h2>Edit Results</h2>
 <br />
 <br />

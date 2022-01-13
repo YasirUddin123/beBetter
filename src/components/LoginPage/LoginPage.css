@@ -1,0 +1,21 @@
+/* body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #0d2f2f;
+  background: -moz-linear-gradient(-45deg,  #0d2f2f 6%, #217071 54%, #2e9b9d 85%);
+  background: -webkit-linear-gradient(-45deg,  #0d2f2f 6%,#217071 54%,#2e9b9d 85%);
+  background: linear-gradient(135deg,  #0d2f2f 6%,#217071 54%,#2e9b9d 85%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d2f2f', endColorstr='#2e9b9d',GradientType=1 );
+ } */
+
+ body {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#184f0f+6,1fc47c+54,a7d1ad+85 */
+    background-image:
+    linear-gradient(to bottom, rgba(8, 26, 30, 0.52),rgba(25, 75, 81, 0.73)),
+    url('https://www.maryvillecollege.edu/wp-content/uploads/Images/Academics/Education/Health-Wellness.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    /* padding: 20px; */
+
+  }

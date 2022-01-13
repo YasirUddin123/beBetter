@@ -64,11 +64,11 @@ Button
 .btn_asLink {
   padding: 0;
   border-width: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid white;
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: white;
 }
 
 .btn_asLink:hover {
@@ -97,6 +97,7 @@ Form Treatment
 -------------------------------------------------------------------------------- */
 
 .formPanel {
+  color: black;
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
@@ -105,6 +106,7 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 input {
