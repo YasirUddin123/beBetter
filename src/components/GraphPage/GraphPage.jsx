@@ -3,6 +3,7 @@ import {Line} from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js'; Chart.register(CategoryScale)
 import { useSelector, useDispatch } from 'react-redux';
+import './GraphPage.css';
 
 function GraphPage() {
   const dispatch = useDispatch()
@@ -129,7 +130,7 @@ const All = {
   return (
     <div className="container">
       <h1>Your Scores!</h1>
-<Line
+<Line className="graph"
           data={Total}
           options={{
             title:{
@@ -148,7 +149,7 @@ const All = {
         <br />
         <br />
         <br />
-        <Line
+        <Line className="graph"
           data={All}
           options={{
             title:{

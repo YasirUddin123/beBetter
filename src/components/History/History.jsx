@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import './History.css'
 
 
 
@@ -51,7 +52,7 @@ const handleEditbtn = (id) => {
     <div className="container">
 
       <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" style={{ backgroundColor: '#efefef', color: 'white' }}>
         <TableHead>
           <TableRow>
             <TableCell align="center">Exercise</TableCell>
@@ -68,6 +69,7 @@ const handleEditbtn = (id) => {
             <TableRow
               key={result.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              style={{ backgroundColor: '#efefef', color: 'white' }}
             >
               <TableCell align="center">
                 {result.physical_activity}
