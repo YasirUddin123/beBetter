@@ -60,6 +60,7 @@ const handleEditbtn = (id) => {
             <TableCell align="center">Sleep</TableCell>
             <TableCell align="center">Mood</TableCell>
             <TableCell align="center">Comments</TableCell>
+            <TableCell align="center">Date</TableCell>
             <TableCell align="center"></TableCell>
             <TableCell align="center"></TableCell>
           </TableRow>
@@ -78,6 +79,7 @@ const handleEditbtn = (id) => {
               <TableCell align="center">{result.sleep}</TableCell>
               <TableCell align="center">{result.mood}</TableCell>
               <TableCell align="center">{result.comments}</TableCell>
+              <TableCell align="center">{result.date}</TableCell>
               <TableCell align="center"><Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={() => handleEditbtn(result.id)}>EDIT</Button></TableCell>
               <TableCell align="center"><Button  variant="contained" style={{ backgroundColor: '#791E1E', color: 'white' }} startIcon={<DeleteIcon />} onClick={() =>handleDeletebtn(result.id)}>DELETE</Button></TableCell>
             </TableRow>

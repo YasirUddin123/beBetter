@@ -10,6 +10,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
       TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
       WHERE "user_id"=$1
+      ORDER BY "date" ASC;
     `;
 
   const queryValues = [req.user.id]
