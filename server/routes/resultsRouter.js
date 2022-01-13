@@ -47,7 +47,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const sqlText = `INSERT INTO "rating"
   ("physical_activity", "diet", "sleep", "mood", "comments", "date", "user_id")
   VALUES
-  ($1, $2, $3, $4, $5, '1-1-22', $6);
+  ($1, $2, $3, $4, $5, $6, $7);
   `;
   const sqlValue = [
       req.body.physical_activity,
@@ -55,6 +55,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       req.body.sleep,
       req.body.mood,
       req.body.comments,
+      req.body.date,
       req.user.id
   ];
   pool.query(sqlText, sqlValue)

@@ -16,6 +16,7 @@ function Survey() {
     const [sleepInput, setSleepInput] = useState('');
     const [moodInput, setMoodInput] = useState('');
     const [commentsInput, setcommentsInput] = useState('');
+    const [dateInput, setDateInput] = useState([''])
     const [quote, setQuote] = useState([]);
 
     // make sure define dispatch to send and store data to our reducer
@@ -63,7 +64,8 @@ function Survey() {
                 confirmButtonText: 'Back',
                 confirmButtonColor: '#286F98'
             })
-        } else if (sleepInput === '') {
+        }
+        else if (sleepInput === '') {
             Swal.fire({
                 title: 'Error!',
                 text: `You forgot to fill out a response for sleep!`,
@@ -156,7 +158,7 @@ function Survey() {
             if (physicalActivityInput <= 5 && physicalActivityInput >= 1 || dietInput <= 5 && dietInput >= 1 || sleepInput <= 5 && sleepInput >= 1 || moodInput <= 5 && moodInput >= 1  ) {
                 dispatch({
                     type: 'ADD_RESULT',
-                    payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+                    payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, date: dateInput, comments: commentsInput}
                 })
                 Swal.fire({
                     title: `"${quote.q}"   - by ${quote.a}`,
@@ -168,7 +170,7 @@ function Survey() {
             } else {
                 dispatch({
                     type: 'ADD_RESULT',
-                    payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
+                    payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, date: dateInput, comments: commentsInput}
                 })
                 Swal.fire({
                     title: `You're done for the day!`,
@@ -187,6 +189,8 @@ return (
     <div className="survey">
 
     <h1>Survey</h1>
+    <h4>Select Today's Date</h4>
+    <input value={dateInput} onChange={(event) => {setDateInput(event.target.value)}} type="date"/>
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     {/* <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/> */}
     <TextField id="outlined-basic" label="Type Your Score" variant="outlined" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number" />
