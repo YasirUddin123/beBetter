@@ -6,6 +6,8 @@ import './Survey.css'
 import {Button} from '@mui/material';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 
 function Survey() {
@@ -22,6 +24,10 @@ function Survey() {
 
     // define history to make sure we can click to next pagef
     const history = useHistory();
+
+    function valuetext(value) {
+        return `${value}°C`;
+    }
 
     // grab reducer from the redux store via useSelector
     // const results = useSelector(store => store.resultReducer);
@@ -219,17 +225,62 @@ return (
 
     <h1>Survey</h1>
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
-    <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/>
-
+    <Box sx={{ width: 300 }} style={{margin: "auto"}}>
+        <Slider
+            aria-label="Temperature"
+            defaultValue={5}
+            getAriaValueText={valuetext}
+            valueLabelDisplay="auto"
+            step={1}
+            marks
+            min={1}
+            max={10}
+            value={physicalActivityInput}
+            onChange={(event) => {setPhysicalActivityInput(event.target.value)}}
+    /></Box>
 
     <h4>On a scale from 1 to 10, how was your diet today?</h4>
-    <input className="input" placeholder="Type a number" value={dietInput} onChange={(event) => {setDietInput(event.target.value)}} type="number"/>
-
+    <Box sx={{ width: 300 }} style={{margin: "auto"}}>
+        <Slider
+            aria-label="Temperature"
+            defaultValue={5}
+            getAriaValueText={valuetext}
+            valueLabelDisplay="auto"
+            step={1}
+            marks
+            min={1}
+            max={10}
+            value={dietInput}
+            onChange={(event) => {setDietInput(event.target.value)}}
+    /></Box>
     <h4>On a scale from 1 to 10, how was your sleep last night?</h4>
-    <input className="input" placeholder="Type a number" value={sleepInput} onChange={(event) => {setSleepInput(event.target.value)}} type="number"/>
-
+    <Box sx={{ width: 300 }} style={{margin: "auto"}}>
+        <Slider
+            aria-label="Temperature"
+            defaultValue={5}
+            getAriaValueText={valuetext}
+            valueLabelDisplay="auto"
+            step={1}
+            marks
+            min={1}
+            max={10}
+            value={sleepInput}
+            onChange={(event) => {setSleepInput(event.target.value)}}
+    /></Box>
     <h4>On a scale from 1 to 10, how was your mood today?</h4>
-    <input className="input" placeholder="Type a number" value={moodInput} onChange={(event) => {setMoodInput(event.target.value)}} type="number"/>
+    <Box sx={{ width: 300 }} style={{margin: "auto"}}>
+        <Slider
+            aria-label="Temperature"
+            defaultValue={5}
+            getAriaValueText={valuetext}
+            valueLabelDisplay="auto"
+            step={1}
+            marks
+            min={1}
+            max={10}
+            value={moodInput}
+            onChange={(event) => {setMoodInput(event.target.value)}}
+    /></Box>
 
     <h4>Anything on your mind?</h4>
     <input className="input" placeholder="Type your thoughts" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
@@ -237,7 +288,6 @@ return (
     </br>
     <br />
     <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onSubmit}>Submit</Button>
-    {/* <p>{quote}</p> */}
     </div>
 );
 }
