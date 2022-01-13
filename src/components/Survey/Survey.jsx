@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import TextField from '@mui/material/TextField';
 
 
 function Survey() {
@@ -283,7 +284,19 @@ return (
     /></Box>
 
     <h4>Anything on your mind?</h4>
-    <input className="input" placeholder="Type your thoughts" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/>
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+    <TextField id="outlined-basic" label="Type your thoughts" variant="outlined"
+    value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} />
+    </Box>
+
+    {/* <input className="input" placeholder="Type your thoughts" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/> */}
     <br>
     </br>
     <br />
