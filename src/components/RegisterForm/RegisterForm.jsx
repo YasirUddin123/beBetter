@@ -31,16 +31,9 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
 
-<TextField id="outlined-basic" label="Username" variant="outlined"
+
+<TextField label="Username" variant="outlined"
 type="text"
 name="username"
 value={username}
@@ -48,7 +41,6 @@ required
 onChange={(event) => setUsername(event.target.value)} />
 
 
-</Box>
 
           {/* <input
             type="text"
@@ -61,16 +53,9 @@ onChange={(event) => setUsername(event.target.value)} />
       </div>
       <div>
         <label htmlFor="password">
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
 
-<TextField id="outlined-basic" label="Password" variant="outlined"
+
+<TextField label="Password" variant="outlined"
 type="password"
 name="password"
 value={password}
@@ -78,7 +63,6 @@ required
 onChange={(event) => setPassword(event.target.value)} />
 
 
-</Box>
 
           {/* <input
             type="password"
