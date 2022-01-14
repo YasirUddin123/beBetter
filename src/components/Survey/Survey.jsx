@@ -191,6 +191,7 @@ return (
     <h1>Survey</h1>
     <h4>Select Today's Date</h4>
     <input value={dateInput} onChange={(event) => {setDateInput(event.target.value)}} type="date"/>
+
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     {/* <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/> */}
     <TextField id="outlined-basic" label="Type Your Score" variant="outlined" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number" />
