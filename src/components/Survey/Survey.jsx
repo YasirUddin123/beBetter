@@ -7,6 +7,9 @@ import {Button} from '@mui/material';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
 
 
 function Survey() {
@@ -16,7 +19,7 @@ function Survey() {
     const [sleepInput, setSleepInput] = useState('');
     const [moodInput, setMoodInput] = useState('');
     const [commentsInput, setcommentsInput] = useState('');
-    const [dateInput, setDateInput] = useState([''])
+    const [dateInput, setDateInput] = useState(null)
     const [quote, setQuote] = useState([]);
 
     // make sure define dispatch to send and store data to our reducer
@@ -24,6 +27,10 @@ function Survey() {
 
     // define history to make sure we can click to next pagef
     const history = useHistory();
+
+    const handleChange = (event) => {
+        setDateInput((event));
+    };
 
     // grab reducer from the redux store via useSelector
     // const results = useSelector(store => store.resultReducer);
@@ -189,8 +196,21 @@ return (
     <div className="survey">
 
     <h1>Survey</h1>
-    <h4>Select Today's Date</h4>
-    <input value={dateInput} onChange={(event) => {setDateInput(event.target.value)}} type="date"/>
+
+    {/* <input value={dateInput} onChange={(event) => {setDateInput(event.target.value)}} type="date"/> */}
+
+    {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <Stack spacing={3}>
+        <MobileDatePicker
+        label="Select Today's Date"
+        inputFormat="MM/dd/yyyy"
+        value={dateInput}
+        onChange={handleChange}
+        renderInput={(params) => <TextField {...params} />}
+        sx={{ width: 10, color: 'success.main'}}
+        />
+    </Stack>
+    </LocalizationProvider> */}
 
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     {/* <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/> */}
@@ -211,29 +231,24 @@ return (
     <h4>Anything on your mind?</h4>
     {/* <input className="input" placeholder="Type your thoughts" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text"/> */}
     <TextField id="outlined-basic" label="Type Your Thoughts" variant="outlined" value={commentsInput} onChange={(event) => {setcommentsInput(event.target.value)}} type="text" />
+
+    <h4>Select Today's Date</h4>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <DatePicker
+        label="Select Date"
+        value={dateInput}
+        onChange={handleChange}
+        renderInput={(params) => <TextField {...params} />}
+    />
+    </LocalizationProvider>
     <br>
     </br>
     <br />
     <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onSubmit}>Submit</Button>
     {/* <p>{quote}</p> */}
+
     </div>
 );
 }
 
 export default Survey;
-
-
-
-// else if (physicalActivityInput <= 5 && physicalActivityInput >= 1 || dietInput <= 5 && dietInput >= 1 || sleepInput <= 5 && sleepInput >= 1 || moodInput <= 5 && moodInput >= 1  ){
-//     dispatch({
-//         type: 'ADD_RESULT',
-//         payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, comments: commentsInput}
-//     })
-//     Swal.fire({
-//         title: `"${quote.q}"   - by ${quote.a}`,
-//         icon: 'success',
-//         confirmButtonText: 'Exit',
-//         confirmButtonColor: '#286F98'
-//     })
-//     history.push('/history');
-// }

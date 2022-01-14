@@ -8,7 +8,7 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 router.get('/', rejectUnauthenticated, (req, res) => {
   const query = `
     SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
-      TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
+      TO_CHAR("date", 'YYYY-MM-DD') AS "date" FROM "rating"
       WHERE "user_id"=$1
       ORDER BY "date" ASC;
     `;
@@ -46,7 +46,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `
   SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
-    TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
+    TO_CHAR("date", 'YYYY-MM-DD') AS "date" FROM "rating"
     WHERE "id"=$1 AND "user_id"=$2
   `;
   const sqlValues = [
