@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './EditResults.css';
+import Swal from 'sweetalert2';
 
 
 
@@ -15,6 +16,7 @@ function EditResultsPage() {
     const dispatch = useDispatch()
     // Grab our reducer for editing
     const editResult = useSelector(store => store.editThisResult)
+    const result = useSelector(store => store.resultReducer)
     // Now, let's go check out the reducer on the editResult.reducer.js file
     // define history to make sure we can click to next page
     const history = useHistory();
@@ -28,31 +30,99 @@ function EditResultsPage() {
     }, [params.id])
 
     const handlePhysicalExerciseResultsChange = (e) => {
-        dispatch({
+        if (e.target.value >= 11) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your exercise score is too high!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else if (e.target.value <= 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your exercise score is too low!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else {
+            dispatch({
         type: 'EDIT_PHYSICAL_RESULT',
         payload: e.target.value
-        })
+        })}
     }
 
     const handleDietResultsChange = (e) => {
-        dispatch({
+        if (e.target.value >= 11) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your diet score is too high!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else if (e.target.value <= 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your diet score is too low!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else {
+            dispatch({
         type: 'EDIT_DIET_RESULT',
         payload: e.target.value
-        })
+        })}
     }
 
     const handleSleepResultsChange = (e) => {
-        dispatch({
+        if (e.target.value >= 11) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your sleep score is too high!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else if (e.target.value <= 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your sleep score is too low!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else {
+            dispatch({
         type: 'EDIT_SLEEP_RESULT',
         payload: e.target.value
-        })
+        })}
     }
 
     const handleMoodResultsChange = (e) => {
-        dispatch({
+        if (e.target.value >= 11) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your mood score is too high!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else if (e.target.value <= 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your mood score is too low!',
+                icon: 'warning',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#286F98'
+            })
+        } else {
+            dispatch({
         type: 'EDIT_MOOD_RESULT',
         payload: e.target.value
-        })
+        })}
     }
 
     const handleCommentsResultsChange = (e) => {
@@ -73,7 +143,8 @@ function EditResultsPage() {
             diet: editResult.diet,
             sleep: editResult.sleep,
             mood: editResult.mood,
-            comments: editResult.comments
+            comments: editResult.comments,
+            date: editResult.date
         }
         })
         history.push('/history');
@@ -81,7 +152,7 @@ function EditResultsPage() {
 
 return (
 <div class="editresults" class="background" class="survey">
-    <h2>Edit Results</h2>
+    <h2>Edit Results for {editResult.date} </h2>
 <br />
 <br />
         <form onSubmit={handleSubmit}>

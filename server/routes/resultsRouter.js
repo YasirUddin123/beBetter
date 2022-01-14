@@ -24,10 +24,30 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+// router.get('/:id', rejectUnauthenticated, (req, res) => {
+//   const sqlText = `
+//     SELECT * FROM rating
+//       WHERE "id" = $1 AND "user_id" = $2;
+//   `;
+//   const sqlValues = [
+//     req.params.id,
+//     req.user.id
+//   ];
+//   pool.query(sqlText, sqlValues)
+//     .then((dbRes) => {
+//       res.send(dbRes.rows[0]);
+//     })
+//     .catch((dbErr) => {
+//       console.log('SELECT database error', dbErr);
+//       res.sendStatus(500);
+//     });
+// });
+
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `
-    SELECT * FROM rating
-      WHERE "id" = $1 AND "user_id" = $2;
+  SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
+    TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
+    WHERE "id"=$1 AND "user_id"=$2
   `;
   const sqlValues = [
     req.params.id,
