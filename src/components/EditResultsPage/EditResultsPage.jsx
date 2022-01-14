@@ -150,6 +150,11 @@ function EditResultsPage() {
         history.push('/history');
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        history.push('/history');
+    }
+
 return (
 <div class="editresults" class="background" class="survey">
     <h2>Edit Results for {editResult.date} </h2>
@@ -218,6 +223,9 @@ return (
 <br />
 <br />
 <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} size="large" align="center" onClick={handleSubmit}>Update</Button>
+<br />
+<br />
+<Button variant="contained"  style={{ backgroundColor: '#D66A0B', color: 'white' }} size="large" align="center" onClick={handleCancel}>Cancel</Button>
         </form>
 
 </div>
