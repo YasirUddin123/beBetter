@@ -173,7 +173,7 @@ function Survey() {
                     payload: {physical_activity: physicalActivityInput, diet: dietInput, sleep: sleepInput, mood: moodInput, date: dateInput, comments: commentsInput}
                 })
                 Swal.fire({
-                    title: `You're done for the day!`,
+                    title: `Success!`,
                     icon: 'success',
                     confirmButtonText: 'Exit',
                     confirmButtonColor: '#286F98'

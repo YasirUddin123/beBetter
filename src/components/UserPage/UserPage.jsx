@@ -31,7 +31,7 @@ function UserPage() {
     <div className="userpage">
       <h1>Welcome {user.username}!</h1>
       <h3>Begin your survey!</h3>
-      <p>Today's date: {day} {monthName} {date}, {year}</p>
+      {/* <p>Today's date: {day} {monthName} {date}, {year}</p> */}
       <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }}  onClick={onBeginSurvey}>Start</Button>
     </div>
   );
