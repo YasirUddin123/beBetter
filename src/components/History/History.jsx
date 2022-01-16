@@ -147,22 +147,22 @@ return (
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>
             <TableRow>
-                <TableCell sx={{width: 30, alignItems: 'center'}}>
+                <TableCell sx={{width: 30, fontSize: 20}}>
                   Exercise
                 </TableCell>
-                <TableCell sx={{width: 30}}>
+                <TableCell sx={{width: 30, fontSize: 20 }}>
                   Diet
                 </TableCell>
-                <TableCell sx={{width: 30}}>
+                <TableCell sx={{width: 30, fontSize: 20}}>
                   Sleep
                 </TableCell>
-                <TableCell sx={{width: 30}}>
+                <TableCell sx={{width: 30, fontSize: 20}}>
                   Mood
                 </TableCell>
-                <TableCell sx={{width: 30}}>
+                <TableCell sx={{width: 30, fontSize: 20}}>
                   Comments
                 </TableCell>
-                <TableCell sx={{width: 30}}>
+                <TableCell sx={{width: 30, fontSize: 20}}>
                   Date
                 </TableCell>
                 <TableCell sx={{width: 30}}>
@@ -177,22 +177,22 @@ return (
             : results
           ).map((result) => (
             <TableRow>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.physical_activity}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.diet}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.sleep}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.mood}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.comments}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 15}}>
                 {result.date}
               </TableCell>
               <TableCell align="center"><Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={() => handleEditbtn(result.id)}>EDIT</Button></TableCell>
