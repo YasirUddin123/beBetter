@@ -138,12 +138,38 @@ const All = {
               text:'Wellness',
               fontSize:20,
               responsive: true,
-              maintainAspectRatio: false
+              maintainAspectRatio: false,
             },
             legend:{
               display:true,
               position:'right'
+            },
+            plugins: {
+              legend: {
+                  labels: {
+                      // This more specific font property overrides the global property
+                      font: {
+                          size: 23
+                      }
+                  }
+              }
+          },
+          scales: {
+            y: {
+              ticks: {
+                  font: {
+                    size: 17
+              }
+          }
+          },
+          x: {
+            ticks: {
+                font: {
+                  size: 17
             }
+        }
+        }
+        }
           }}
         />
         <br />
@@ -164,7 +190,33 @@ const All = {
             legend:{
               display:true,
               position:'right'
+            },
+            plugins: {
+              legend: {
+                  labels: {
+                      // This more specific font property overrides the global property
+                      font: {
+                          size: 23
+                      }
+                  }
+              }
+          },
+          scales: {
+            y: {
+              ticks: {
+                  font: {
+                    size: 17
+              }
+          }
+          },
+          x: {
+            ticks: {
+                font: {
+                  size: 17
             }
+        }
+        }
+        }
           }}
         />
       </div>
