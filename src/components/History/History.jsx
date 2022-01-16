@@ -124,7 +124,7 @@ TablePaginationActions.propTypes = {
 };
 
 const [page, setPage] = React.useState(0);
-const [rowsPerPage, setRowsPerPage] = React.useState(5);
+const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
 // Avoid a layout jump when reaching the last page with empty rows.
 const emptyRows =
@@ -212,7 +212,7 @@ return (
         </TableFooter>
       </Table>
       <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              rowsPerPageOptions={[7, 14, 21, 30, { label: 'All', value: -1 }]}
               colSpan={3}
               count={results.length}
               rowsPerPage={rowsPerPage}
