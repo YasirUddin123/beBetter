@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
-import './LoginForm.css'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -43,34 +42,16 @@ function LoginForm() {
             required
             value={username}
             onChange={(event) => setUsername(event.target.value)}/>
-          {/* <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          /> */}
         </label>
       </div>
       <div>
         <label htmlFor="password">
-<TextField label="Password" variant="outlined"
-type="password"
-name="password"
-required
-value={password}
-onChange={(event) => setPassword(event.target.value)} />
-
-
-
-          {/* <input
+            <TextField label="Password" variant="outlined"
             type="password"
             name="password"
             required
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          /> */}
+            onChange={(event) => setPassword(event.target.value)} />
         </label>
       </div>
       <div>
@@ -81,5 +62,3 @@ onChange={(event) => setPassword(event.target.value)} />
 }
 
 export default LoginForm;
-
-//test commit

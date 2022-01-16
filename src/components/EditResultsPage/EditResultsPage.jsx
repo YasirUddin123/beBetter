@@ -8,9 +8,6 @@ import Button from '@mui/material/Button';
 import './EditResults.css';
 import Swal from 'sweetalert2';
 
-
-
-
 function EditResultsPage() {
     const params = useParams();
     const dispatch = useDispatch()
@@ -233,6 +230,3 @@ return (
 }
 
 export default EditResultsPage;
-
-//let's style
-// commit test

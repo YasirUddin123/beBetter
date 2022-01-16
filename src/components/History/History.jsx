@@ -24,11 +24,6 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 
 
-
-
-
-
-
 function History() {
 
   useEffect(() => {
@@ -56,15 +51,15 @@ function History() {
     })
 };
 
-const handleEditbtn = (id) => {
-  console.log('test');
-  console.log('id', id);
-  history.push(`/edit_results/${id}`);
-};
+  const handleEditbtn = (id) => {
+    console.log('test');
+    console.log('id', id);
+    history.push(`/edit_results/${id}`);
+  };
 
-const  TablePaginationActions = (props) => {
-  const theme = useTheme();
-  const { count, page, rowsPerPage, onPageChange } = props;
+  const  TablePaginationActions = (props) => {
+    const theme = useTheme();
+    const { count, page, rowsPerPage, onPageChange } = props;
 
   const handleFirstPageButtonClick = (event) => {
     onPageChange(event, 0);
@@ -199,7 +194,6 @@ return (
               <TableCell align="center"><Button  variant="contained" style={{ backgroundColor: '#791E1E', color: 'white' }} startIcon={<DeleteIcon />} onClick={() =>handleDeletebtn(result.id)}>DELETE</Button></TableCell>
             </TableRow>
           ))}
-
           {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>
               <TableCell colSpan={6} />
@@ -230,8 +224,6 @@ return (
             />
     </TableContainer>
     </div>
-
-
   );
 }
 

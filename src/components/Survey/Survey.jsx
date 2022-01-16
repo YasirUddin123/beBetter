@@ -32,13 +32,6 @@ function Survey() {
         setDateInput((event));
     };
 
-    // grab reducer from the redux store via useSelector
-    // const results = useSelector(store => store.resultReducer);
-
-    // useEffect(() => {
-    //     dispatch({ type: 'FETCH_RESULT'})
-    // }, []);
-
     useEffect(() => {
         axios({
         method: 'GET',
@@ -192,7 +185,6 @@ function Survey() {
     }
 
 return (
-    // <div className="container">
     <div className="survey">
 
     <h1>Survey</h1>
