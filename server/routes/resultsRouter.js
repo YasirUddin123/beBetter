@@ -8,8 +8,9 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 router.get('/', rejectUnauthenticated, (req, res) => {
   const query = `
     SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
-      TO_CHAR("date", 'MM-DD-YYYY') AS "date" FROM "rating"
+      TO_CHAR("date", 'YYYY-MM-DD') AS "date" FROM "rating"
       WHERE "user_id"=$1
+      ORDER BY "date" ASC;
     `;
 
   const queryValues = [req.user.id]
@@ -23,10 +24,30 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+// router.get('/:id', rejectUnauthenticated, (req, res) => {
+//   const sqlText = `
+//     SELECT * FROM rating
+//       WHERE "id" = $1 AND "user_id" = $2;
+//   `;
+//   const sqlValues = [
+//     req.params.id,
+//     req.user.id
+//   ];
+//   pool.query(sqlText, sqlValues)
+//     .then((dbRes) => {
+//       res.send(dbRes.rows[0]);
+//     })
+//     .catch((dbErr) => {
+//       console.log('SELECT database error', dbErr);
+//       res.sendStatus(500);
+//     });
+// });
+
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `
-    SELECT * FROM rating
-      WHERE "id" = $1 AND "user_id" = $2;
+  SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
+    TO_CHAR("date", 'YYYY-MM-DD') AS "date" FROM "rating"
+    WHERE "id"=$1 AND "user_id"=$2
   `;
   const sqlValues = [
     req.params.id,
@@ -47,7 +68,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const sqlText = `INSERT INTO "rating"
   ("physical_activity", "diet", "sleep", "mood", "comments", "date", "user_id")
   VALUES
-  ($1, $2, $3, $4, $5, '1-1-22', $6);
+  ($1, $2, $3, $4, $5, $6, $7);
   `;
   const sqlValue = [
       req.body.physical_activity,
@@ -55,6 +76,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       req.body.sleep,
       req.body.mood,
       req.body.comments,
+      req.body.date,
       req.user.id
   ];
   pool.query(sqlText, sqlValue)

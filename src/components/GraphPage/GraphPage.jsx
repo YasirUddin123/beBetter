@@ -77,12 +77,12 @@ const Total = {
       label: 'Total',
       fill: false,
       lineTension: 0.5,
-      backgroundColor: '#4A9CFF',
-      borderColor: '#1B4476',
+      backgroundColor: '#1EB48D',
+      borderColor: '#1D7760',
       borderWidth: 2,
       data: newTotal
     }
-  ],
+  ]
 }
 const All = {
   labels: newLabel,
@@ -91,8 +91,8 @@ const All = {
       label: 'Exercise',
       fill: false,
       lineTension: 0.5,
-      backgroundColor: '#1EB48D',
-      borderColor: '#1D7760',
+      backgroundColor: '#4A9CFF',
+      borderColor: '#1B4476',
       borderWidth: 2,
       data: newPhysicalExercise
     },
@@ -123,7 +123,7 @@ const All = {
       borderWidth: 2,
       data: newMood
     }
-  ],
+  ]
 }
 
 
@@ -135,13 +135,41 @@ const All = {
           options={{
             title:{
               display:true,
-              text:'Wellness',
-              fontSize:20
+              text:'Total',
+              fontSize:20,
+              responsive: true,
+              maintainAspectRatio: false,
             },
             legend:{
               display:true,
               position:'right'
+            },
+            plugins: {
+              legend: {
+                  labels: {
+                      // This more specific font property overrides the global property
+                      font: {
+                          size: 23
+                      }
+                  }
+              }
+          },
+          scales: {
+            y: {
+              ticks: {
+                  font: {
+                    size: 17
+              }
+          }
+          },
+          x: {
+            ticks: {
+                font: {
+                  size: 17
             }
+        }
+        }
+        }
           }}
         />
         <br />
@@ -154,13 +182,41 @@ const All = {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
-              fontSize:20
+              text:'AllGraphs',
+              fontSize:20,
+              responsive: true,
+              maintainAspectRatio: false
             },
             legend:{
               display:true,
               position:'right'
+            },
+            plugins: {
+              legend: {
+                  labels: {
+                      // This more specific font property overrides the global property
+                      font: {
+                          size: 23
+                      }
+                  }
+              }
+          },
+          scales: {
+            y: {
+              ticks: {
+                  font: {
+                    size: 17
+              }
+          }
+          },
+          x: {
+            ticks: {
+                font: {
+                  size: 17
             }
+        }
+        }
+        }
           }}
         />
       </div>

@@ -37,21 +37,12 @@ function LoginForm() {
       )}
       <div>
         <label htmlFor="username">
-        <Box htmlFor="username"
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-            <TextField id="outlined-basic" label="Username" variant="outlined" type="text"
+            <TextField label="Username" variant="outlined" type="text"
             name="username"
             placeholder="Username"
             required
             value={username}
             onChange={(event) => setUsername(event.target.value)}/>
-            </Box>
           {/* <input
             type="text"
             name="username"
@@ -64,25 +55,13 @@ function LoginForm() {
       </div>
       <div>
         <label htmlFor="password">
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-
-
-<TextField id="outlined-basic" label="Password" variant="outlined"
+<TextField label="Password" variant="outlined"
 type="password"
 name="password"
 required
 value={password}
 onChange={(event) => setPassword(event.target.value)} />
 
-
-</Box>
 
 
           {/* <input
@@ -102,3 +81,5 @@ onChange={(event) => setPassword(event.target.value)} />
 }
 
 export default LoginForm;
+
+//test commit
