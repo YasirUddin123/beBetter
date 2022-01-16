@@ -77,8 +77,8 @@ const Total = {
       label: 'Total',
       fill: false,
       lineTension: 0.5,
-      backgroundColor: '#4A9CFF',
-      borderColor: '#1B4476',
+      backgroundColor: '#1EB48D',
+      borderColor: '#1D7760',
       borderWidth: 2,
       data: newTotal
     }
@@ -91,8 +91,8 @@ const All = {
       label: 'Exercise',
       fill: false,
       lineTension: 0.5,
-      backgroundColor: '#1EB48D',
-      borderColor: '#1D7760',
+      backgroundColor: '#4A9CFF',
+      borderColor: '#1B4476',
       borderWidth: 2,
       data: newPhysicalExercise
     },
@@ -135,7 +135,7 @@ const All = {
           options={{
             title:{
               display:true,
-              text:'Wellness',
+              text:'Total',
               fontSize:20,
               responsive: true,
               maintainAspectRatio: false,
@@ -182,7 +182,7 @@ const All = {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'AllGraphs',
               fontSize:20,
               responsive: true,
               maintainAspectRatio: false
