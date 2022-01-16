@@ -82,7 +82,7 @@ const Total = {
       borderWidth: 2,
       data: newTotal
     }
-  ],
+  ]
 }
 const All = {
   labels: newLabel,
@@ -123,7 +123,7 @@ const All = {
       borderWidth: 2,
       data: newMood
     }
-  ],
+  ]
 }
 
 
@@ -136,7 +136,9 @@ const All = {
             title:{
               display:true,
               text:'Wellness',
-              fontSize:20
+              fontSize:20,
+              responsive: true,
+              maintainAspectRatio: false
             },
             legend:{
               display:true,
@@ -155,7 +157,9 @@ const All = {
             title:{
               display:true,
               text:'Average Rainfall per month',
-              fontSize:20
+              fontSize:20,
+              responsive: true,
+              maintainAspectRatio: false
             },
             legend:{
               display:true,

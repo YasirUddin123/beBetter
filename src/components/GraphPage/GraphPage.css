@@ -3,5 +3,8 @@
     /* border: 2px solid black; */
     /* border-style: round; */
     border-radius: 4px;
-
+    width: 1000px !important;
+    height:600px !important;
+    margin: auto;
+    padding: 10px;
 }

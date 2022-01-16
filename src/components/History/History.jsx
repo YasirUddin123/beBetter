@@ -12,7 +12,6 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './History.css'
-import { DataGrid } from '@mui/x-data-grid';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -23,6 +22,12 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+
+
+
+
+
+
 
 function History() {
 
