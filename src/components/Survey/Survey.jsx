@@ -252,3 +252,4 @@ return (
 }
 
 export default Survey;
+//clean code

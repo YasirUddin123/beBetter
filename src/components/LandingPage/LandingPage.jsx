@@ -25,7 +25,7 @@ function LandingPage() {
           <RegisterForm />
 
           <center>
-            <h4>Already a Member?</h4>
+            <p>Already a Member?</p>
             <button Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} onClick={onLogin}>
               Login
             </button>
