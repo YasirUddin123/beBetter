@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import TimelineSharpIcon from '@mui/icons-material/TimelineSharp';
 import ListSharpIcon from '@mui/icons-material/ListSharp';
+import InfoIcon from '@mui/icons-material/Info';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -38,9 +39,7 @@ function Nav() {
           </>
         )}
 
-        {/* <Link className="navLink" to="/about">
-          About
-        </Link> */}
+        <Link className="navLink" to="/about"><InfoIcon></InfoIcon></Link>
       </div>
     </div>
   );
