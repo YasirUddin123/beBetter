@@ -10,7 +10,13 @@ function AboutPage() {
   return (
     <div className="container">
       <div className="about">
-        <p>This about page is for anyone to read!</p>
+        <h1>Gratitude</h1>
+        <h3>Thank you to Prime Digital Academy, Gemini Cohort, family and friends</h3>
+        <h4>Technologies Used</h4>
+        <p>I used React, Redux-Sagas, Node, Express, and Material UI</p>
+        <p>I also used Chart.js to create my graph and the Zen Quotes API to send motivational quotes</p>
+
+
       </div>
     </div>
   );
