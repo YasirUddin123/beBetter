@@ -91,7 +91,6 @@ function* fetchOneResult(action) {
     }
 }
 
-
 // Pseudocode
 // Step 1: Click on the edit button
     // onClick function that handlles the edit button
