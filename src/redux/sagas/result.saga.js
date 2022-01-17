@@ -2,12 +2,14 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchResult() {
-    // get all physical activity results from the DB
+    // This saga function gets all the results from the DB
+    // with the help of the /api/results route
+    // which goes to the get router in the resultsRouter.js file
+    // if successful, this will update the results Reducer with the type and payload indicated below
     try {
         const result = yield axios.get('/api/results');
         console.log('get all:', result.data);
         yield put({ type: 'SET_RESULT', payload: result.data });
-
     } catch {
         console.log('get all error');
     }
@@ -15,6 +17,10 @@ function* fetchResult() {
 
 
 function* addResult(action) {
+    // This saga function sends results to the DB when a user submits a survey
+    // with the help of the /api/results route
+    // which goes to the post router in the resultsRouter.js file
+    // This is a little different format so I can get more practice seeing different version
     console.log('Test POST:', action.payload)
     try {
         const newResult = yield axios({
@@ -22,7 +28,6 @@ function* addResult(action) {
             url: '/api/results',
             data: action.payload
         })
-
         yield put({ type: 'FETCH_RESULT' });
 
     } catch {
@@ -32,8 +37,9 @@ function* addResult(action) {
 
 
 function* deleteResult(action) {
+    // Similar pattern as above ^ but the delete route
+    // But important to note that the action.payload data is in the url
     console.log(action);
-
     try {
         const response = yield axios({
             method: 'DELETE',
@@ -47,6 +53,10 @@ function* deleteResult(action) {
 };
 
 function* editResult(action){
+    // Similar pattern as above ^ but the put route
+    // But important to note that the action.payload.id data is in the url
+    // as a parameter in the url when we edit
+    // if all good, then use the fetch reuslt type to call the fetch result function above
     try {
         console.log('edit result action.payload', action.payload);
         yield axios ({
@@ -63,6 +73,9 @@ function* editResult(action){
 }
 
 function* fetchOneResult(action) {
+    // Similar pattern as Get
+    // But only grabs one submission so we are able to edit that particular submission
+    // on the EditResults page
     try {
     const response = yield axios({
         method: 'GET',
