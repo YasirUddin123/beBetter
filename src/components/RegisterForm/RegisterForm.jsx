@@ -31,46 +31,22 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-
-
-<TextField label="Username" variant="outlined"
-type="text"
-name="username"
-value={username}
-required
-onChange={(event) => setUsername(event.target.value)} />
-
-
-
-          {/* <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          /> */}
+          <TextField label="Username" variant="outlined"
+          type="text"
+          name="username"
+          value={username}
+          required
+          onChange={(event) => setUsername(event.target.value)} />
         </label>
       </div>
       <div>
         <label htmlFor="password">
-
-
-<TextField label="Password" variant="outlined"
-type="password"
-name="password"
-value={password}
-required
-onChange={(event) => setPassword(event.target.value)} />
-
-
-
-          {/* <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          /> */}
+          <TextField label="Password" variant="outlined"
+          type="password"
+          name="password"
+          value={password}
+          required
+          onChange={(event) => setPassword(event.target.value)} />
         </label>
       </div>
       <div>

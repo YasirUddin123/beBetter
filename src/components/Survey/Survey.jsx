@@ -13,7 +13,7 @@ import DatePicker from '@mui/lab/DatePicker';
 
 
 function Survey() {
-    // make sure to define a state to collect feedback
+    // Make sure to define a state to collect feedback
     const [physicalActivityInput, setPhysicalActivityInput] = useState('');
     const [dietInput, setDietInput] = useState('');
     const [sleepInput, setSleepInput] = useState('');
@@ -22,23 +22,17 @@ function Survey() {
     const [dateInput, setDateInput] = useState(null)
     const [quote, setQuote] = useState([]);
 
-    // make sure define dispatch to send and store data to our reducer
+    // Make sure define dispatch to send and store data to our reducer
     const dispatch = useDispatch();
 
-    // define history to make sure we can click to next pagef
+    // Define history to make sure we can click to next pagef
     const history = useHistory();
 
+    // Handles when a date is selected
     const handleChange = (event) => {
         setDateInput((event));
     };
-
-    // grab reducer from the redux store via useSelector
-    // const results = useSelector(store => store.resultReducer);
-
-    // useEffect(() => {
-    //     dispatch({ type: 'FETCH_RESULT'})
-    // }, []);
-
+    // Use axios in order to get a random quote from the Zen Quotes API from the server.js file
     useEffect(() => {
         axios({
         method: 'GET',
@@ -49,11 +43,12 @@ function Survey() {
         })
     }, [])
 
-    // console.log(quote.q);
-    // console.log(quote.a);
-
-
-    // route to Exercise results page
+    // route to Edit Results page
+    // I used if/else conditionals to send sweet alerts depending on the score that is submitted
+    // These are based on if the score is too high, too low and
+    // If the scores are in range,
+    // The scores will provide a random Zen Quote on a sweet alert after the submission depending on a particular low score
+    // or provide a successful sweet alert if a user provided high scores
     const onSubmit = () => {
         if(physicalActivityInput === '') {
             Swal.fire({
@@ -192,7 +187,6 @@ function Survey() {
     }
 
 return (
-    // <div className="container">
     <div className="survey">
 
     <h1>Survey</h1>
@@ -214,6 +208,9 @@ return (
 
     <h4>On a scale from 1 to 10, how was your exercise today?</h4>
     {/* <input className="input" placeholder="Type a number" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number"/> */}
+    {/* Used MUI to style the text field  */}
+    {/* This handles the state and the onClick function when a score is provided */}
+    {/* This repeats for the rest of the items below */}
     <TextField id="outlined-basic" label="Type Your Score" variant="outlined" value={physicalActivityInput} onChange={(event) => {setPhysicalActivityInput(event.target.value)}} type="number" />
 
     <h4>On a scale from 1 to 10, how was your diet today?</h4>

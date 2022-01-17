@@ -24,47 +24,40 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 
 
-
-
-
-
-
 function History() {
-
+  // useEffect allows us to dispatch a call with type and send the payload data for a particular submission
+  // we want to use the GET route to our fetchResult saga in result.saga.js
   useEffect(() => {
     dispatch({ type: 'FETCH_RESULT'})
 }, []);
-
-  // define dispatch in order to use it
+  // Define dispatch in order to use it
   const dispatch = useDispatch();
-
-  // define history in order to route to page
+  // Define history in order to route to page
   const history = useHistory();
-
-  // define params
-  const params = useParams();
-
-  // grab reducer from the redux store via useSelector
+  // Grab reducer from the redux store via useSelector
   const results = useSelector(store => store.resultReducer);
   console.log(results)
-
+  // Define our handleDeletebtn function
   const handleDeletebtn = (id) => {
-
+  // id allows us to target a particular submission
+  // Dispatch a call with type and send the payload data for a particular submission
+  // we want to use the DELETE route to our deleteResult saga in result.saga.js
     dispatch({
         type: 'DELETE_RESULT',
         payload: id
     })
 };
-
-const handleEditbtn = (id) => {
-  console.log('test');
-  console.log('id', id);
-  history.push(`/edit_results/${id}`);
-};
-
-const  TablePaginationActions = (props) => {
-  const theme = useTheme();
-  const { count, page, rowsPerPage, onPageChange } = props;
+// Define our handleEditbtn
+// This will route to the History component/web page
+  const handleEditbtn = (id) => {
+    console.log('test');
+    console.log('id', id);
+    history.push(`/edit_results/${id}`);
+  };
+// MUI necessities to create pagination (that bottom part of the table to select number of rows, next page and that jazz)
+  const  TablePaginationActions = (props) => {
+    const theme = useTheme();
+    const { count, page, rowsPerPage, onPageChange } = props;
 
   const handleFirstPageButtonClick = (event) => {
     onPageChange(event, 0);
@@ -81,7 +74,7 @@ const  TablePaginationActions = (props) => {
   const handleLastPageButtonClick = (event) => {
     onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
   };
-
+// More MUI items to make the pagination
   return (
     <Box sx={{ flexShrink: 0, ml: 2.5, float: 'right'}}>
       <IconButton
@@ -115,14 +108,16 @@ const  TablePaginationActions = (props) => {
     </Box>
   );
 }
-
+// MUI Pagination
 TablePaginationActions.propTypes = {
   count: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-
+// MUI Pagination
+// I set the initial state to 7 so that users can see the data on the table on a weekly basis
+// on default
 const [page, setPage] = React.useState(0);
 const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
@@ -143,6 +138,7 @@ const handleChangeRowsPerPage = (event) => {
 return (
 
 <div className="container">
+  {/* Used MUI to create a helpful table */}
 <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>
@@ -171,6 +167,7 @@ return (
                 </TableCell>
             </TableRow>
           </TableHead>
+  {/* I mapped through the result reducer to render each submission and include the edit and delete buttons with its functionality  */}
         <TableBody>
           {(rowsPerPage > 0
             ? results.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -199,7 +196,6 @@ return (
               <TableCell align="center"><Button  variant="contained" style={{ backgroundColor: '#791E1E', color: 'white' }} startIcon={<DeleteIcon />} onClick={() =>handleDeletebtn(result.id)}>DELETE</Button></TableCell>
             </TableRow>
           ))}
-
           {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>
               <TableCell colSpan={6} />
@@ -211,6 +207,9 @@ return (
           </TableRow>
         </TableFooter>
       </Table>
+  {/* More MUI pagination items */}
+  {/* I set rows per page as these four numbers  */}
+  {/* So users can see their submissions based on one/two/three week(s) or monthly basis */}
       <TablePagination
               rowsPerPageOptions={[7, 14, 21, 30, { label: 'All', value: -1 }]}
               colSpan={3}
@@ -230,8 +229,6 @@ return (
             />
     </TableContainer>
     </div>
-
-
   );
 }
 

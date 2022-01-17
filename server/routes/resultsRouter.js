@@ -4,7 +4,9 @@ const router = express.Router();
 const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 
-
+// Handles the GET route
+// rejectUnauthenticated prevents anyone who is not logged in to use this
+// This uses a sql query and values to get the data from db on postico
 router.get('/', rejectUnauthenticated, (req, res) => {
   const query = `
     SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
@@ -24,25 +26,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-// router.get('/:id', rejectUnauthenticated, (req, res) => {
-//   const sqlText = `
-//     SELECT * FROM rating
-//       WHERE "id" = $1 AND "user_id" = $2;
-//   `;
-//   const sqlValues = [
-//     req.params.id,
-//     req.user.id
-//   ];
-//   pool.query(sqlText, sqlValues)
-//     .then((dbRes) => {
-//       res.send(dbRes.rows[0]);
-//     })
-//     .catch((dbErr) => {
-//       console.log('SELECT database error', dbErr);
-//       res.sendStatus(500);
-//     });
-// });
-
+// Handles the get route for a particular submission
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `
   SELECT "id", "physical_activity", "diet", "sleep", "mood", "comments",
@@ -63,6 +47,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     });
 });
 
+// Handles the post route for a particular submission
+// sends the data to the db
 router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(`Adding physical activity results`, req.body);
   const sqlText = `INSERT INTO "rating"
@@ -90,7 +76,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   });
 });
 
-
+// Handles the delete route for a particular submission indicated by :id
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('Test Delete');
   const sqlText = `
@@ -108,6 +94,7 @@ pool.query(sqlText, queryValues)
   })
 });
 
+// Handles the put/edit route when a submission is updated
 router.put('/:id', rejectUnauthenticated,(req, res) => {
   const sqlText = `
     UPDATE rating
