@@ -15,80 +15,52 @@ Before starting, please make sure you have the following software installed on y
 
 ## My High Level Development Plan
 ### Step 1: Initialize Project
-  - Make a new git branch to 'initialize' my work [x]
-  - Add an .env file to project directory [x]
+  - Make a new git branch to 'initialize' my work
+  - Add an .env file to project directory
 
 #### Front-End:
-  - Make sure all files are sourced in correctly [x]
+  - Make sure all files are sourced in correctly
 
 #### Back-End:
-  - Run npm install --yes [x]
-  - Make sure express and pg are installed as well [x]
-  - Create a database using SQL via Postico [x]
-  - Create a 'user' table using SQL via Postico [x]
-  - Create a 'rating' table using SQl via Postico [x]
-  - Include queries on my database.sql text file [x]
-  - Wire up database connection in pool.js file [x]
-  - Make sure Express server is functional in server.js [x]
+  - Run npm install --yes
+  - Make sure express and pg are installed as well
+  - Create a database using SQL via Postico
+  - Create a 'user' table using SQL via Postico
+  - Create a 'rating' table using SQl via Postico
+  - Include queries on my database.sql text file
+  - Wire up database connection in pool.js file
+  - Make sure Express server is functional in server.js
 
 ### Step 2: Develop Features
-  * Log-in and Registration [x]
-    * Store in database [x]
+  * Log-in and Registration
+    * Store in database
 
   * Home Page
-    * Route to Recorded Entries [x]
-    * Route to Start Survey [x]
-    * Route to Graph [x]
-    * Ability to Log Out [x]
-    * Incorporate Current Date [x]
+    * Route to Recorded Entries
+    * Route to Start Survey
+    * Route to Graph
+    * Ability to Log Out
+    * Incorporate Current Date
 
   * Survey
     * Provide questionnaire
     * Route to submit answers
     * Ability to Log Out
 
-  * Physical Activity Results
-    * Score
-    * Photo
-    * Encouragement / Advice
-    * Ability to Log Out
-    * Route to Next Results
-
-  * Diet Results
-    * Score
-    * Photo
-    * Encouragement / Advice
-    * Ability to Log Out
-    * Route to Next Results
-
-  * Sleep Results
-    * Score
-    * Photo
-    * Encouragement / Advice
-    * Ability to Log Out
-    * Route to Next Results
-
-  * Mood Results
-    * Score
-    * Photo
-    * Encouragement / Advice
-    * Ability to Log Out
-    * Route to Next Results
-
-  * Recorded Entries
+  * History
     * Log of past submissions
-    * Ability to Edit or Delete
-    * Route to Home
-    * Route to Graph
-    * Route to Log Out
+    * Inspirational Quote depending on score
+    * Ability to edit or delete entries
+    * Ability to route to Home
+    * Ability to route to Graph
+    * Ability to Log Out
 
-  * Graph
+  * Graph with chart.js
     * Display graph of past numerical scores
-      * Organized by total, physical activity, diet, sleep, or mood
+      * Organized by total, exercise, diet, sleep, and mood
     * Route to Home
     * Route to Graph
     * Route to Log Out
 
-  * Style the application
+  * Style the application with CSS and Material-UI
 
-### Step 3: Deploy to Heroku
