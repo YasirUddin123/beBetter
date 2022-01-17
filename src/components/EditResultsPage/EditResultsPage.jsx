@@ -9,15 +9,16 @@ import './EditResults.css';
 import Swal from 'sweetalert2';
 
 function EditResultsPage() {
+    // Define params so we can use it
     const params = useParams();
+    // Define dispatch so we can dispatch the call and payload data of the info we want to edit to our fetchOneResult saga in result.saga.js
     const dispatch = useDispatch()
-    // Grab our reducer for editing
+    // Grab our reducer from editResult.reducer.js so we can edit data
     const editResult = useSelector(store => store.editThisResult)
-    const result = useSelector(store => store.resultReducer)
-    // Now, let's go check out the reducer on the editResult.reducer.js file
-    // define history to make sure we can click to next page
+    // define history to make sure we can route to specific component/web page
     const history = useHistory();
-
+    // useEffect allows us to dispatch a call with type and send the payload data for a particular submission
+    //  we want to edit to our fetchOneResult saga in result.saga.js
     useEffect(() => {
         console.log('🚀🚀🚀🚀🚀🚀🚀');
         dispatch({
@@ -26,6 +27,10 @@ function EditResultsPage() {
         })
     }, [params.id])
 
+    // To make sure the user does not submit a score less than 0 or greater than 10
+    // We want to send sweet alerts to the user
+    // When the user updates score in the correct range,
+    // We send a dispatch to the editThisResult reducer in the editResult.reducer.js
     const handlePhysicalExerciseResultsChange = (e) => {
         if (e.target.value >= 11) {
             Swal.fire({
@@ -49,7 +54,10 @@ function EditResultsPage() {
         payload: e.target.value
         })}
     }
-
+    // To make sure the user does not submit a score less than 0 or greater than 10
+    // We want to send sweet alerts to the user
+    // When the user updates score in the correct range,
+    // We send a dispatch to the editThisResult reducer in the editResult.reducer.js
     const handleDietResultsChange = (e) => {
         if (e.target.value >= 11) {
             Swal.fire({
@@ -73,7 +81,10 @@ function EditResultsPage() {
         payload: e.target.value
         })}
     }
-
+    // To make sure the user does not submit a score less than 0 or greater than 10
+    // We want to send sweet alerts to the user
+    // When the user updates score in the correct range,
+    // We send a dispatch to the editThisResult reducer in the editResult.reducer.js
     const handleSleepResultsChange = (e) => {
         if (e.target.value >= 11) {
             Swal.fire({
@@ -97,7 +108,10 @@ function EditResultsPage() {
         payload: e.target.value
         })}
     }
-
+    // To make sure the user does not submit a score less than 0 or greater than 10
+    // We want to send sweet alerts to the user
+    // When the user updates score in the correct range,
+    // We send a dispatch to the editThisResult reducer in the editResult.reducer.js
     const handleMoodResultsChange = (e) => {
         if (e.target.value >= 11) {
             Swal.fire({
@@ -121,14 +135,19 @@ function EditResultsPage() {
         payload: e.target.value
         })}
     }
-
+    // To make sure the user does not submit a score less than 0 or greater than 10
+    // We want to send sweet alerts to the user
+    // When the user updates score in the correct range,
+    // We send a dispatch to the editThisResult reducer in the editResult.reducer.js
     const handleCommentsResultsChange = (e) => {
         dispatch({
         type: 'EDIT_COMMENTS_RESULT',
         payload: e.target.value
         })
     }
-
+    // When the user clicks on the Update button with the correct updated data,
+    // A dispatch is sent to the editResult Saga in result.saga.js via the type
+    // and sends the payload data which is the udpated data
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('test')
@@ -146,7 +165,8 @@ function EditResultsPage() {
         })
         history.push('/history');
     }
-
+    // If the user clicks on the Cancel Button,
+    // The user gets routed back to the history component/web page
     const handleCancel = (e) => {
         e.preventDefault();
         history.push('/history');
@@ -157,7 +177,9 @@ return (
     <h2>Edit Results for {editResult.date} </h2>
 <br />
 <br />
+    {/* Using a form tag to handle the Update button */}
         <form onSubmit={handleSubmit}>
+    {/* Material UI to format Edit Results box */}
             <Box
                 component="form"
                 sx={{
@@ -166,7 +188,9 @@ return (
                 noValidate
                 autoComplete="off"
                 />
-
+    {/* Material UI to update style of input field */}
+    {/* The value handles the value of the updated submission or blank in order to update */}
+    {/* This will happen anytime a value changes via onChange */}
             <TextField
             id="outlined-basic"
             label="Exercise"
@@ -176,7 +200,9 @@ return (
             value={editResult.physical_activity || ''}
             onChange={handlePhysicalExerciseResultsChange}
             />
-
+    {/* Material UI to update style of input field */}
+    {/* The value handles the value of the updated submission or blank in order to update */}
+    {/* This will happen anytime a value changes via onChange */}
             <TextField
             id="outlined-basic"
             label="Diet"
@@ -186,7 +212,9 @@ return (
             value={editResult.diet || ''}
             onChange={handleDietResultsChange}
             />
-
+    {/* Material UI to update style of input field */}
+    {/* The value handles the value of the updated submission or blank in order to update */}
+    {/* This will happen anytime a value changes via onChange */}
             <TextField
             id="outlined-basic"
             label="Sleep"
@@ -196,7 +224,9 @@ return (
             value={editResult.sleep || ''}
             onChange={handleSleepResultsChange}
             />
-
+    {/* Material UI to update style of input field */}
+    {/* The value handles the value of the updated submission or blank in order to update */}
+    {/* This will happen anytime a value changes via onChange */}
             <TextField
             id="outlined-basic"
             label="Mood"
@@ -206,7 +236,9 @@ return (
             value={editResult.mood || ''}
             onChange={handleMoodResultsChange}
             />
-
+    {/* Material UI to update style of input field */}
+    {/* The value handles the value of the updated submission or blank in order to update */}
+    {/* This will happen anytime a value changes via onChange */}
             <TextField
             id="outlined-basic"
             label="Comments"
@@ -219,9 +251,13 @@ return (
 <br />
 <br />
 <br />
+    {/* Material UI to update styling of the Button */}
+    {/* This includes an onClick to handle the update which corresponds to line 151 handleSubmit function */}
 <Button variant="contained"  style={{ backgroundColor: '#286F98', color: 'white' }} size="large" align="center" onClick={handleSubmit}>Update</Button>
 <br />
 <br />
+    {/* Material UI to update styling of the Button */}
+    {/* This includes an onClick to handle the cancel which corresponds to line 170 handleCancel function */}
 <Button variant="contained"  style={{ backgroundColor: '#D66A0B', color: 'white' }} size="large" align="center" onClick={handleCancel}>Cancel</Button>
         </form>
 
@@ -229,4 +265,5 @@ return (
 );
 }
 
+// Export this component to App.jsx 
 export default EditResultsPage;
