@@ -14,11 +14,11 @@ import DatePicker from '@mui/lab/DatePicker';
 
 function Survey() {
     // Make sure to define a state to collect feedback
-    const [physicalActivityInput, setPhysicalActivityInput] = useState('');
-    const [dietInput, setDietInput] = useState('');
-    const [sleepInput, setSleepInput] = useState('');
-    const [moodInput, setMoodInput] = useState('');
-    const [commentsInput, setcommentsInput] = useState('');
+    const [physicalActivityInput, setPhysicalActivityInput] = useState(10);
+    const [dietInput, setDietInput] = useState(9);
+    const [sleepInput, setSleepInput] = useState(1);
+    const [moodInput, setMoodInput] = useState(2);
+    const [commentsInput, setcommentsInput] = useState('I need a nap');
     const [dateInput, setDateInput] = useState(null)
     const [quote, setQuote] = useState([]);
 
