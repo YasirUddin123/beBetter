@@ -10,9 +10,7 @@ function AboutPage() {
           <li>React, Redux-Sagas, Node, Express, and Material UI</li>
           <br />
           <li>Chart.js to create my graphs and the Zen Quotes API to send inspirational quotes</li>
-          <h4>Toughest Challenges</h4>
-          <li>Getting my routes to wire up properly</li>
-          <br />
+          <h4>Toughest Challenge</h4>
           <li>Making sure the graphs were updated in real time</li>
           <h4>One thing I'm excited to tackle</h4>
           <li>Adding an API to sent text reminders</li>
